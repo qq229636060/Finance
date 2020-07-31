@@ -1,0 +1,104 @@
+<!--index.wxml-->
+<view class="container">
+<van-notice-bar
+  color="#fff"
+  background="#fc432a"
+  left-icon="volume-o"
+  text="【技巧】看懂这个故事 通透你的期货交易"
+/>
+<view class="topbox">
+   <view class="top_text">
+      <view><i></i>行情</view>
+      <view>全部品种</view>
+   </view>
+</view>
+ <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="h200" indicator-active-color="#e1503c" indicator-color="#d1d1d1">
+        <block wx:key="*this">
+          <swiper-item class="flex3">
+            <view class="swiper-item"> 
+                <view>同花顺商品</view>
+                <view>92.65</view>
+                <view>0.13  0.14%</view>
+            </view>
+            <view class="swiper-item green"> 
+                <view>螺纹主连</view>
+                <view>92.65</view>
+                <view>0.13  0.14%</view>
+            </view>
+            <view class="swiper-item"> 
+                <view>原油主连</view>
+                <view>92.65</view>
+                <view>0.13  0.14%</view>
+            </view>
+          </swiper-item>
+        </block>
+        <block wx:key="*this">
+         <swiper-item class="flex3">
+            <view class="swiper-item"> 
+                <view>同花顺商品</view>
+                <view>92.65</view>
+                <view>0.13  0.14%</view>
+            </view>
+            <view class="swiper-item green"> 
+                <view>螺纹主连</view>
+                <view>92.65</view>
+                <view>0.13  0.14%</view>
+            </view>
+            <view class="swiper-item"> 
+                <view>原油主连</view>
+                <view>92.65</view>
+                <view>0.13  0.14%</view>
+            </view>
+          </swiper-item>
+        </block>
+  </swiper>
+  <view class="index_nav">
+      <view class="navbox">
+          <view class="navicon"><image src="../../img/i1.png"></image></view>
+          <view class="navtxt">磐石服务</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i2.png"></image></view>
+          <view class="navtxt">磐石学院</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i3.png"></image></view>
+          <view class="navtxt">赢在大户室</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i4.png"></image></view>
+          <view class="navtxt">基差数据</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i5.png"></image></view>
+          <view class="navtxt">每日一策</view>
+      </view>
+      <view class="navbox">
+          <view class="navicon"><image src="../../img/i6.png"></image></view>
+          <view class="navtxt">独家报告</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i7.png"></image></view>
+          <view class="navtxt">波段王</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i8.png"></image></view>
+          <view class="navtxt">财经日历</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i9.png"></image></view>
+          <view class="navtxt">新手必读</view>
+      </view>
+       <view class="navbox">
+          <view class="navicon"><image src="../../img/i10.png"></image></view>
+          <view class="navtxt">加入我们</view>
+      </view>
+  </view>
+  <swiper indicator-dots="{{indicatorDots_pic}}" autoplay="{{autoplay_pic}}" interval="{{interval_pic}}" duration="{{duration_pic}}" class="jdpic" indicator-active-color="#e1503c" indicator-color="#d1d1d1">
+        <block wx:key="*this">
+          <swiper-item>
+              <image src="../../temp_img/live.jpg"></image>
+          </swiper-item>
+        </block>
+  </swiper>
+</view>
