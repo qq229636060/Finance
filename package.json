@@ -1,0 +1,24 @@
+{
+  "name": "finance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.4.1",
+    "miniprogram-sm-crypto": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qq229636060/Finance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qq229636060/Finance/issues"
+  },
+  "homepage": "https://github.com/qq229636060/Finance#readme"
+}
