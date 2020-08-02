@@ -1,0 +1,9 @@
+<view class="container">
+<van-tabs active="{{ active }}" bind:change="onChange" border="false">
+  <van-tab title="视频课程">
+    <view class="line26"></view>
+    
+  </van-tab>
+  <van-tab title="图文课程">内容 2</van-tab>
+</van-tabs>
+</view>
