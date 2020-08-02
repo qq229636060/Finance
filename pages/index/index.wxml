@@ -57,7 +57,7 @@
           <view class="navicon"><image src="../../img/i1.png"></image></view>
           <view class="navtxt">磐石服务</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="2">
           <view class="navicon"><image src="../../img/i2.png"></image></view>
           <view class="navtxt">磐石学院</view>
       </view>
@@ -101,4 +101,36 @@
           </swiper-item>
         </block>
   </swiper>
+  <view class="topbox">
+   <view class="top_text">
+      <view><i class="zxicon"></i>热点资讯</view>
+      <view>更多</view>
+   </view>
+  </view>
+  <view class="news_list">
+        <view class="newsbox">
+            <view class="n_l">
+                <view>【收评】期市收盘以上涨为主 原油、硅铁涨逾3%</view>
+                <view class="time">1小时前</view>
+                <view class="tag"><i>原油</i><i>期货</i></view>
+            </view>
+            <view class="n_r"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+        </view>
+          <view class="newsbox">
+            <view class="n_l">
+                <view>【收评】期市收盘以上涨为主 原油、硅铁涨逾3%</view>
+                <view class="time">1小时前</view>
+                <view class="tag"><i>原油</i><i>期货</i></view>
+            </view>
+            <view class="n_r"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+        </view>
+          <view class="newsbox">
+            <view class="n_l">
+                <view>【收评】期市收盘以上涨为主 原油、硅铁涨逾3%</view>
+                <view class="time">1小时前</view>
+                <view class="tag"><i>原油</i><i>期货</i></view>
+            </view>
+            <view class="n_r"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+        </view>
+  </view>
 </view>

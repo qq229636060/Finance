@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/school/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -12,6 +13,30 @@
     "navigationBarBackgroundColor": "#fc432a",
     "navigationBarTitleText": "期市掌中宝",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color":"#666",
+    "selectedColor":"#fc432a",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/home-g.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/quotation.png",
+        "selectedIconPath": "img/quotation-g.png",
+        "text": "行情"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/my-g.png",
+        "text": "我的"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
