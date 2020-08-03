@@ -2,8 +2,61 @@
 <van-tabs active="{{ active }}" bind:change="onChange" border="false">
   <van-tab title="视频课程">
     <view class="line26"></view>
-    
+    <view class="titles"><i></i>基础课程</view>
+    <view class="school_list">
+    <view class="schoolbox" bindtap="goto_vcont">
+        <view class="s_l"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+        <view class="s_r">
+            <view class="s_title">10分钟了解期货</view>
+            <view class="s_tag">
+              <view class="s_tag_l"><i>基础课程</i><i>进阶</i></view>
+              <view class="s_tag_r"><view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view></view>
+            </view>
+            <view class="s_jd"><text>学习进度</text><view class="w220 ml50"><van-progress percentage="90" show-pivot="false"/></view><text>0/6节</text></view>
+        </view>
+    </view>
+    <view class="schoolbox">
+        <view class="s_l"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+        <view class="s_r">
+            <view class="s_title">10分钟了解期货</view>
+            <view class="s_tag">
+              <view class="s_tag_l"><i>基础课程</i><i>进阶</i></view>
+              <view class="s_tag_r"><view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view></view>
+            </view>
+            <view class="s_jd"><text>学习进度</text><view class="w220 ml50"><van-progress percentage="30"  show-pivot="false"/></view><text>0/6节</text></view>
+        </view>
+     </view>
+    </view>
   </van-tab>
-  <van-tab title="图文课程">内容 2</van-tab>
+  <van-tab title="图文课程">
+        <view class="line26"></view>
+    <view class="titles"><i></i>图文基础课程</view>
+    <view class="school_list">
+    <view class="schoolbox">
+        <view class="s_l"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+        <view class="s_r">
+            <view class="s_title">10分钟了解期货</view>
+            <view class="s_tag">
+              <view class="s_tag_l"><i>基础课程</i><i>进阶</i></view>
+              <view class="s_tag_r"><view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view></view>
+            </view>
+            <view class="s_jd"><text>学习进度</text><view class="w220 ml50"><van-progress percentage="90" show-pivot="false"/></view><text>0/6节</text></view>
+        </view>
+    </view>
+    <view class="schoolbox">
+        <view class="s_l"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+        <view class="s_r">
+            <view class="s_title">10分钟了解期货</view>
+            <view class="s_tag">
+              <view class="s_tag_l"><i>基础课程</i><i>进阶</i></view>
+              <view class="s_tag_r"><view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view></view>
+            </view>
+            <view class="s_jd"><text>学习进度</text><view class="w220 ml50"><van-progress percentage="30"  show-pivot="false"/></view><text>0/6节</text></view>
+        </view>
+     </view>
+    </view>
+  </van-tab>
 </van-tabs>
+
+
 </view>

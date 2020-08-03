@@ -1,24 +1,18 @@
-// pages/school/index.js
+// pages/school/vcont.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active:0,
+
   },
-  goto_vcont:function(){
-    wx.navigateTo({
-      url:"vcont"
-    });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '磐石学院'
-    })
+
   },
 
   /**

@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/school/index"
+    "pages/school/index",
+    "pages/school/vcont",
+    "pages/school/tcont"
   ],
   "permission": {
     "scope.userLocation": {
