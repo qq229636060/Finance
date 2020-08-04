@@ -1,4 +1,4 @@
-// pages/school/tcont.js
+// pages/oneday_news/index.js
 Page({
 
   /**
@@ -7,16 +7,21 @@ Page({
   data: {
 
   },
-  goto_textcont:function(){
-    wx.navigateTo({
-      url:"text_cont"
-    });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    var text = "";
+    if(options.nav == 5){
+      text = '每日一策'
+    }else if(options.nav == 6){
+      text = '独家报告'
+    }
+    wx.setNavigationBarTitle({
+      title: text
+    })
   },
 
   /**

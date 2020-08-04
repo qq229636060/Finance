@@ -1,0 +1,26 @@
+<!--pages/datalist/index.wxml-->
+<view class="container">
+    <van-row custom-class="fixtitle fixtop">
+      <van-col span="5">品种</van-col>
+      <van-col span="5">现货价格</van-col>
+      <van-col span="5">期货价格</van-col>
+      <van-col span="5">主力基差<van-icon name="arrow-down" size="10px"/></van-col>
+      <van-col span="4">基差率<van-icon name="arrow-down" size="10px" /></van-col>
+    </van-row>
+    <view class="databox">
+      <van-row custom-class="fixtitle">
+        <van-col span="5" custom-class="cred">上证</van-col>
+        <van-col span="5">3381.8</van-col>
+        <van-col span="5">3381.8</van-col>
+        <van-col span="5" custom-class="cgreen">-22.0</van-col>
+        <van-col span="4" custom-class="cgreen">-0.65%</van-col>
+      </van-row>
+        <van-row custom-class="fixtitle">
+        <van-col span="5" custom-class="cred">上证</van-col>
+        <van-col span="5">3381.8</van-col>
+        <van-col span="5">3381.8</van-col>
+        <van-col span="5" custom-class="cred">+22.0</van-col>
+        <van-col span="4" custom-class="cred">+10.00%</van-col>
+      </van-row>
+    </view>
+</view>

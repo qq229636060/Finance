@@ -32,7 +32,7 @@
         <view class="line26"></view>
     <view class="titles"><i></i>图文基础课程</view>
     <view class="school_list">
-    <view class="schoolbox">
+    <view class="schoolbox" bindtap="goto_tcont">
         <view class="s_l"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
         <view class="s_r">
             <view class="s_title">10分钟了解期货</view>

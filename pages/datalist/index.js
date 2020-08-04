@@ -1,4 +1,4 @@
-// pages/school/tcont.js
+// pages/datalist/index.js
 Page({
 
   /**
@@ -7,16 +7,14 @@ Page({
   data: {
 
   },
-  goto_textcont:function(){
-    wx.navigateTo({
-      url:"text_cont"
-    });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '基差数据'
+    })
   },
 
   /**

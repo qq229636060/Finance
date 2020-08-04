@@ -1,4 +1,4 @@
-// pages/school/tcont.js
+// pages/school/text_cont.js
 Page({
 
   /**
@@ -7,11 +7,7 @@ Page({
   data: {
 
   },
-  goto_textcont:function(){
-    wx.navigateTo({
-      url:"text_cont"
-    });
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

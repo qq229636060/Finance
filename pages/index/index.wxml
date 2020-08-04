@@ -65,19 +65,19 @@
           <view class="navicon"><image src="../../img/i3.png"></image></view>
           <view class="navtxt">赢在大户室</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="4">
           <view class="navicon"><image src="../../img/i4.png"></image></view>
           <view class="navtxt">基差数据</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="5">
           <view class="navicon"><image src="../../img/i5.png"></image></view>
           <view class="navtxt">每日一策</view>
       </view>
-      <view class="navbox">
+      <view class="navbox" bindtap="gotonav" data-id="6">
           <view class="navicon"><image src="../../img/i6.png"></image></view>
           <view class="navtxt">独家报告</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="7">
           <view class="navicon"><image src="../../img/i7.png"></image></view>
           <view class="navtxt">波段王</view>
       </view>

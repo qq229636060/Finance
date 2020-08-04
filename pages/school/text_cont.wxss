@@ -1,0 +1,8 @@
+/* pages/school/text_cont.wxss */
+page{
+  background-color: #f4f4f4;
+}
+.contbox{padding: 30rpx;}
+.cont_title{font-size: 44rpx; margin-bottom: 10rpx;}
+.cont_from{font-size: 24rpx; margin-bottom: 20rpx;}
+.cont_text{font-size: 32rpx; line-height: 56rpx;}

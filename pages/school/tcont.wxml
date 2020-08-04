@@ -8,7 +8,7 @@
       </view>
   </view>
   <view class="vlist">
-       <view class="vcbox">
+       <view class="vcbox" bindtap="goto_textcont">
           <view class="vbox_l"><i></i></view>
           <view class="vbox_m">
             <view>什么是期货</view>

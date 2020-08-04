@@ -1,0 +1,5 @@
+/* pages/oneday_news/index.wxss */
+.contbox{padding: 30rpx;}
+.news_title{ font-size: 45rpx; text-align: center; margin:10rpx 0 0 10rpx;}
+.fbtime{ font-size: 28rpx; color: #646464; text-align: center;}
+.cont_text{font-size: 30rpx; line-height: 56rpx; color: #646464; margin-top: 20rpx;}

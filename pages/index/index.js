@@ -23,6 +23,21 @@ Page({
           url:"../school/index"
         });
         break;
+      case '4':
+          wx.navigateTo({
+            url:"../datalist/index"
+          });
+          break;
+      case '5':
+            wx.navigateTo({
+              url:"../oneday_news/index?nav=5"
+            });
+            break;
+      case '6':
+              wx.navigateTo({
+                url:"../oneday_news/index?nav=6"
+              });
+              break;
      }  
   },
   onLoad: function () {

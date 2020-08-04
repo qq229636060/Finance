@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/school/index",
     "pages/school/vcont",
-    "pages/school/tcont"
+    "pages/school/tcont",
+    "pages/school/text_cont",
+    "pages/datalist/index",
+    "pages/oneday_news/index",
+    "pages/boduan/index"
   ],
   "permission": {
     "scope.userLocation": {
