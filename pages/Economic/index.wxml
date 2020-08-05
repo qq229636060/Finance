@@ -1,0 +1,8 @@
+<!--pages/Economic/index.wxml-->
+<view class="container">
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="数据">内容 1</van-tab>
+  <van-tab title="事件">内容 2</van-tab>
+  <van-tab title="假期">内容 3</van-tab>
+</van-tabs>
+</view>

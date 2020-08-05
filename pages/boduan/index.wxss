@@ -1,1 +1,10 @@
 /* pages/boduan/index.wxss */
+.fromtime{text-align: center; font-size: 30rpx; color: #969696; margin:20rpx 0;}
+.celv{ width: 620rpx; height: 250rpx; margin:0 auto; position: relative; }
+.celv image{ width: 620rpx; height: 250rpx; }
+.cbox{ width: 620rpx; height: 250rpx; position: absolute; top: 0; left: 0;display: flex; align-items: center;}
+.cbox .c_l{ font-size: 44rpx; color: #e1503c; width:400rpx; text-align: center;}
+.cbox .c_r{ font-size: 28rpx; color: #fff; padding-right: 20rpx;}
+.mt30{ margin-top: 30rpx;}
+.pd40{ padding:40rpx}
+.cont_text{font-size: 30rpx; line-height: 56rpx; color: #646464; margin-top: 20rpx;}

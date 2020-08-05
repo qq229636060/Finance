@@ -7,7 +7,7 @@
     "pages/school/text_cont",
     "pages/datalist/index",
     "pages/oneday_news/index",
-    "pages/boduan/index"
+    "pages/Economic/index"
   ],
   "permission": {
     "scope.userLocation": {

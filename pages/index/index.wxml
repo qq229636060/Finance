@@ -81,7 +81,7 @@
           <view class="navicon"><image src="../../img/i7.png"></image></view>
           <view class="navtxt">波段王</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="8">
           <view class="navicon"><image src="../../img/i8.png"></image></view>
           <view class="navtxt">财经日历</view>
       </view>

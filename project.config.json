@@ -72,9 +72,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/boduan/index",
-					"pathName": "pages/boduan/index",
+					"id": 1,
+					"name": "pages/Economic/index",
+					"pathName": "pages/Economic/index",
 					"query": "",
 					"scene": null
 				}

@@ -38,6 +38,16 @@ Page({
                 url:"../oneday_news/index?nav=6"
               });
               break;
+      case '7':
+                wx.navigateTo({
+                  url:"../boduan/index"
+                });
+                break;
+      case '8':
+                  wx.navigateTo({
+                    url:"../Economic/index"
+                  });
+                  break;
      }  
   },
   onLoad: function () {
