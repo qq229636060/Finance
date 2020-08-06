@@ -1,11 +1,11 @@
-// pages/Economic/index.js
+// pages/novice/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active:0
+
   },
 
   /**
@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '财经日历'
+      title: '新手必读'
     })
   },
 

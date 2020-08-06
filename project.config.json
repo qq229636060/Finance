@@ -73,8 +73,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/Economic/index",
-					"pathName": "pages/Economic/index",
+					"name": "pages/novice/index",
+					"pathName": "pages/novice/index",
 					"query": "",
 					"scene": null
 				}
