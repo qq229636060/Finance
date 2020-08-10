@@ -18,6 +18,11 @@ Page({
   gotonav:function(e){
      var e_id = e.currentTarget.dataset.id;
      switch(e_id){
+      case '1':
+        wx.navigateTo({
+          url:"../chatroom/list"
+        });
+        break;
       case '2':
         wx.navigateTo({
           url:"../school/index"
@@ -48,6 +53,11 @@ Page({
                     url:"../Economic/index"
                   });
                   break;
+     case '9':
+                    wx.navigateTo({
+                      url:"../novice/index"
+                    });
+                    break;
      }  
   },
   onLoad: function () {

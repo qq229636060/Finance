@@ -73,8 +73,8 @@
 				},
 				{
 					"id": 1,
-					"name": "pages/novice/index",
-					"pathName": "pages/novice/index",
+					"name": "pages/chatroom/talkroom",
+					"pathName": "pages/chatroom/talkroom",
 					"query": "",
 					"scene": null
 				}

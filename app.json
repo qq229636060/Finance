@@ -8,7 +8,9 @@
     "pages/datalist/index",
     "pages/oneday_news/index",
     "pages/Economic/index",
-    "pages/novice/index"
+    "pages/novice/index",
+    "pages/chatroom/list",
+    "pages/chatroom/talkroom"
   ],
   "permission": {
     "scope.userLocation": {

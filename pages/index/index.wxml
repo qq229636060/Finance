@@ -53,7 +53,7 @@
         </block>
   </swiper>
   <view class="index_nav">
-      <view class="navbox">
+      <view class="navbox" bindtap="gotonav" data-id="1">
           <view class="navicon"><image src="../../img/i1.png"></image></view>
           <view class="navtxt">磐石服务</view>
       </view>
@@ -85,7 +85,7 @@
           <view class="navicon"><image src="../../img/i8.png"></image></view>
           <view class="navtxt">财经日历</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="9">
           <view class="navicon"><image src="../../img/i9.png"></image></view>
           <view class="navtxt">新手必读</view>
       </view>

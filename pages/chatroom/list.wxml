@@ -1,0 +1,37 @@
+<!--pages/chatroom/list.wxml-->
+<view class="container">
+  <view class="roombox">
+    <view class="roombox_t">
+      <view class="face">
+          <image src="../../temp_img/face.jpg"></image>
+      </view>
+      <view class="roomtext">
+        <view class="roomtext_t">VIP专区</view>
+        <view class="roomtext_b">分享交易新观点，期货大咖的根据地</view>
+      </view>
+      <view class="bottom_dy">订阅</view>
+    </view>
+    <view class="roombox_b" bindtap="gototalk">
+      <i></i> 
+      <view class="txt">在线互动：老师在线辅导</view>
+      <text>立即进入</text>
+    </view>
+  </view>
+   <view class="roombox">
+    <view class="roombox_t">
+      <view class="face">
+          <image src="../../temp_img/face.jpg"></image>
+      </view>
+      <view class="roomtext">
+        <view class="roomtext_t">VIP专区</view>
+        <view class="roomtext_b">分享交易新观点，期货大咖的根据地</view>
+      </view>
+      <view class="bottom_dy">订阅</view>
+    </view>
+    <view class="roombox_b">
+      <i></i> 
+      <view class="txt">在线互动：老师在线辅导</view>
+      <text>立即进入</text>
+    </view>
+  </view>
+</view>
