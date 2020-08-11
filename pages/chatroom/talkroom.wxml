@@ -1,3 +1,8 @@
 <view class="container">
-<view class="fixtool"></view>
+<my-talk class="iner"></my-talk>
+<view class="fixtool">
+  <view class="techroom_icon"><image src="../../img/talk.png"></image></view>
+  <input class="weui-input" placeholder="评论"/>
+   <button class="fs" size="mini">发送</button>
+</view>
 </view>

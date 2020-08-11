@@ -1,0 +1,14 @@
+/**index.wxss**/
+.talk{padding-bottom: 100rpx;}
+.talkbox{display: flex; padding: 30rpx; width: 100%; box-sizing: border-box;}
+.myself{ flex-direction:row-reverse}
+.talkbox_l{ width: 80rpx; text-align: center;}
+.talkbox_l .talkboxface{ width: 80rpx; height: 80rpx;}
+.talkbox_l .talkboxface image { width: 80rpx; height: 80rpx; border-radius: 50%;}
+.talkbox_l .times{ color: #646464; font-size: 20rpx;}
+.myself .times{display: none;}
+.talkbox_r {margin-left: 20rpx;}
+.myself .talkbox_r{ margin-left: 0; margin-right: 20rpx;}
+.talkbox_r .usename{color: #646464; font-size: 24rpx;}
+.myself .usename{display: none;}
+.talkbox_r .talkcont{ color: #282828; font-size: 26rpx; background: #fff; padding: 10rpx 20rpx; border-radius: 10rpx; margin-top:10rpx ;}

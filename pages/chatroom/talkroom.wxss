@@ -2,4 +2,9 @@
 page{
    background-color: #f0f0f0;
 }
-.fixtool{ width: 100%; height: 130rpx; background-color: #f7f7f7; position: fixed; bottom: 0; display: flex;}
+.fixtool{ width: 100%; height: 100rpx; background-color: #f7f7f7; position: fixed; bottom: 0; display: flex; align-items: center; padding: 0 30rpx; box-sizing: border-box;}
+.techroom_icon{ width: 60rpx; height: 60rpx; margin-right: 20rpx;}
+.techroom_icon image{ width: 60rpx; height: 60rpx;}
+.weui-input{ width: 485rpx; height: 60rpx; background: #fff; padding: 0 30rpx; box-sizing: border-box; border-radius: 10rpx;}
+.fs{ width: 100rpx; height: 60rpx; line-height: 60rpx; padding: 0;background: #fb432a; color: #fff;}
+.iner{display: block; width: 100%; height: 100%;}

@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="talk">
+     <view class="talkbox">
+            <view class="talkbox_l">
+                <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
+                <view class="times">14:45:32</view>
+            </view>
+            <view class="talkbox_r">
+                <view class="usename">啦啦了</view>
+                <view class="talkcont">哈哈今晚回来吃饭吗？</view>
+            </view>
+     </view>
+    <view class="talkbox">
+            <view class="talkbox_l">
+                <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
+                <view class="times">14:45:32</view>
+            </view>
+            <view class="talkbox_r">
+                <view class="usename">啦啦了</view>
+                <view class="talkcont">哈哈今晚回来吃饭吗？</view>
+            </view>
+     </view>
+     <view class="talkbox myself">
+            <view class="talkbox_l">
+                <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
+                <view class="times">14:45:32</view>
+            </view>
+            <view class="talkbox_r">
+                <view class="usename">啦啦了</view>
+                <view class="talkcont">哈哈今晚回来吃饭吗？</view>
+            </view>
+     </view>
+     
+  </view>
+</view>
