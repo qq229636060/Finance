@@ -1,14 +1,68 @@
 // pages/chatroom/talkroom.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    openright:true,
+    teachshow:false,
+    talkbtn:['../../img/talk.png','../../img/talk1.png'],
+    showtalk:0,
+    topwindow:0,
+    rightwindow:0,
+    techertopAnimation:{},
+    techerrightAnimation:{}
+  },
+  animationend:function(){
+    if(this.data.topwindow == 0){
+      this.setData({
+         topwindow:1
+      })
+    }else{
+      this.setData({
+         topwindow:0
+     })
+    }
+  },
+  animationend_rightbox:function(){
+    if(this.data.rightwindow == 0){
+      this.setData({
+        rightwindow:1
+      })
+    }else{
+      this.setData({
+        rightwindow:0
+     })
+    }
+  },
+  topbtn:function(){
+    if(this.data.topwindow == 0){
+      this.animation.translateX(100+'%').step()
+      this.setData({techertopAnimation: this.animation.export()})
+    }else{
+      this.animation.translateX(0).step()
+      this.setData({techertopAnimation: this.animation.export()})
+    }
+  },
+  rightbtn:function(){
+    if(this.data.rightwindow == 0){
+      this.animation.translateX(100+'%').step()
+      this.setData({techerrightAnimation: this.animation.export()})
+    }else{
+      this.animation.translateX(0).step()
+      this.setData({techerrightAnimation: this.animation.export()})
+    }
   },
   switch:function(){
-    
+     if(this.data.showtalk == 0){
+        this.setData({
+          showtalk:1
+        })
+     }else{
+      this.setData({
+        showtalk:0
+      })
+     }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -21,7 +75,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.animation = wx.createAnimation()
   },
 
   /**

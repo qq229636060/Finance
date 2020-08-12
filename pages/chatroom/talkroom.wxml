@@ -1,7 +1,37 @@
 <view class="container">
 <my-talk class="iner"></my-talk>
+<view class="teacher" wx:if="{{showtalk == 1}}">
+   <i bindtap="topbtn" class="topbtncss" wx:if="{{topwindow == 1}}"><image src="../../img/icon1_r.png"></image></i>
+   <i bindtap="rightbtn"  class="rightbtncss" wx:if="{{rightwindow == 1}}"><image src="../../img/icon2_r.png"></image></i>
+   <view class="teacher_title" animation="{{techertopAnimation}}" bindtransitionend='animationend'>
+   <i bindtap="topbtn"><image src="../../img/icon1.png"></image></i>
+   策略仅供参考，不作为买卖依据！本服务团队秉承严谨、客观的角度为投资者提供市场资讯服务，但是市场对资讯的反馈存在不可控因素，本公司资讯服务仅供参考，并不能取代您自己的投资判断，也不会降低金融产品的固有风险，不作为买卖依据，建议投资者自主决定交易，自负风险。市场有风险，入市需谨慎！
+   </view>
+   <view class="teacher_right" animation="{{techerrightAnimation}}" bindtransitionend='animationend_rightbox'>
+    <i bindtap="rightbtn" wx:if="{{rightwindow == 0}}"><image src="../../img/icon2.png"></image></i>
+    <view class="teachbox">
+       <view class="teachbox_t">
+          <view class="teachface"><image src="../../temp_img/face.jpg"></image></view>
+          <view class="teachtxt">
+              <view>焦炭2009</view>
+              <view>2020-06-27 09:09:44</view>
+              <view>区间：1946~1948</view>
+              <view>止损：1930</view>
+              <view>理由：1935支撑位反弹</view>
+          </view>
+          <view class="redicont">买入</view>
+       </view>
+       <view class="teachbox_b">
+         <view>1.短期看1972附近</view>
+         <view>2.1957附近止盈减仓</view>
+         <view>3.1954止盈</view>
+       </view>
+       <view class="textsz">策略仅供参考，不作为买卖依据</view>
+    </view>
+   </view>
+</view>
 <view class="fixtool">
-  <view class="techroom_icon" bindtap="switch"><image src="../../img/talk.png"></image></view>
+  <view class="techroom_icon" bindtap="switch"><image src="{{talkbtn[showtalk]}}"></image></view>
   <input class="weui-input" placeholder="评论"/>
    <button class="fs" size="mini">发送</button>
 </view>
