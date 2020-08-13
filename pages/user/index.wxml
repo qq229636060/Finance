@@ -1,0 +1,19 @@
+<!--pages/user/index.wxml-->
+<view class="useinfo">
+    <view class="userface"><image src="../../img/useface.png"></image></view>
+    <view class="usename">登录</view>
+    <view class="mt50">
+      <van-cell is-link>
+            <view slot="title" class="title">
+              <image src="../../img/help.png" class="useicon"></image>
+              <view class="van-cell-text">服务申请</view>
+            </view>
+      </van-cell>
+     <van-cell is-link>
+            <view slot="title" class="title">
+              <image src="../../img/about.png" class="useicon1"></image>
+              <view class="van-cell-text">联系我们</view>
+            </view>
+      </van-cell>
+    </view>
+</view>

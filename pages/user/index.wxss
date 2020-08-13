@@ -1,0 +1,12 @@
+/* pages/user/index.wxss */
+page{
+  background: #f4f4f4;
+}
+.userface{ width: 120rpx; height: 120rpx; margin:50rpx auto 20rpx auto;}
+.userface image{ width: 120rpx; height: 120rpx; border-radius: 50%;}
+.usename{ text-align: center;}
+.mt50{margin-top: 50rpx;}
+.mt50 .van-cell{margin-bottom: 20rpx;}
+.title{display: flex;}
+.useicon{ width: 40rpx; height: 40rpx;display: inline-block; margin-right: 20rpx;}
+.useicon1{width: 40rpx; height: 33rpx;display: inline-block; margin-right: 20rpx;}
