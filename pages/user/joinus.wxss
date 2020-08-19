@@ -1,0 +1,3 @@
+/* pages/user/joinus.wxss */
+page{background: #f9f9f9;}
+.pics{ width: 100%; height: 982rpx;}

@@ -46,6 +46,7 @@
   .jdpic image{ width: 100%; height: 300rpx;}
   .newsbox{ width: 100%;display: flex; justify-content: space-between; padding:30rpx; box-sizing: border-box; border-bottom: solid 1rpx #dcdcdc;} 
   .newsbox:first-child{padding-top: 0;}
+  .newsbox:last-child{border: none;}
   .newsbox .n_l{ width: 465rpx;}
   .newsbox .n_l view{margin-top: 20rpx;}
   .newsbox .n_l view:first-child{ font-size: 36rpx;margin-top:0; height: 95rpx; overflow: hidden;}

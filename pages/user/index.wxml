@@ -1,7 +1,7 @@
 <!--pages/user/index.wxml-->
 <view class="useinfo">
     <view class="userface"><image src="../../img/useface.png"></image></view>
-    <view class="usename">登录</view>
+    <button open-type="getUserInfo" class="nonebtn" bindgetuserinfo='btn_sub' class="usename">点击登录</button>
     <view class="mt50">
       <van-cell is-link>
             <view slot="title" class="title">

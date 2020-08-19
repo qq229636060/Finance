@@ -1,0 +1,4 @@
+<!--pages/user/joinus.wxml-->
+<view class="container">
+ <image src="../../img/joinus.jpg" class="pics"></image>
+</view>

@@ -11,7 +11,9 @@
     "pages/novice/index",
     "pages/chatroom/list",
     "pages/chatroom/talkroom",
-    "pages/user/index"
+    "pages/user/index",
+    "pages/user/userinfo",
+    "pages/user/joinus"
   ],
   "permission": {
     "scope.userLocation": {

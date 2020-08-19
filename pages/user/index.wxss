@@ -4,7 +4,7 @@ page{
 }
 .userface{ width: 120rpx; height: 120rpx; margin:50rpx auto 20rpx auto;}
 .userface image{ width: 120rpx; height: 120rpx; border-radius: 50%;}
-.usename{ text-align: center;}
+.usename{ text-align: center; background: #f4f4f4;}
 .mt50{margin-top: 50rpx;}
 .mt50 .van-cell{margin-bottom: 20rpx;}
 .title{display: flex;}

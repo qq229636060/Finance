@@ -49,15 +49,20 @@ Page({
                 });
                 break;
       case '8':
-                  wx.navigateTo({
+                wx.navigateTo({
                     url:"../Economic/index"
-                  });
+                });
                   break;
      case '9':
-                    wx.navigateTo({
+                wx.navigateTo({
                       url:"../novice/index"
-                    });
-                    break;
+                });
+                break;
+     case '10':
+                wx.navigateTo({
+                            url:"../user/joinus"
+                });
+                break;
      }  
   },
   onLoad: function () {

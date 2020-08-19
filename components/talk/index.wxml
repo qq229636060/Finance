@@ -1,7 +1,17 @@
 <!--index.wxml-->
 <view class="container">
   <view class="talk">
-     <view class="talkbox">
+     <view class="{{item.from_id == item.from_user.uid ? 'talkbox myself' : 'talkbox'}}" wx:for="{{talklist.msg}}" wx:key="this">
+            <view class="talkbox_l">
+                <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
+                <view class="times">{{item.time}}</view>
+            </view>
+            <view class="talkbox_r">
+                <view class="usename">{{item.from_user.nick}}</view>
+                <view class="talkcont">{{item.msg}}</view>
+            </view>
+     </view>
+     <!-- <view class="talkbox myself">
             <view class="talkbox_l">
                 <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
                 <view class="times">14:45:32</view>
@@ -10,27 +20,7 @@
                 <view class="usename">啦啦了</view>
                 <view class="talkcont">哈哈今晚回来吃饭吗？</view>
             </view>
-     </view>
-    <view class="talkbox">
-            <view class="talkbox_l">
-                <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
-                <view class="times">14:45:32</view>
-            </view>
-            <view class="talkbox_r">
-                <view class="usename">啦啦了</view>
-                <view class="talkcont">哈哈今晚回来吃饭吗？</view>
-            </view>
-     </view>
-     <view class="talkbox myself">
-            <view class="talkbox_l">
-                <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
-                <view class="times">14:45:32</view>
-            </view>
-            <view class="talkbox_r">
-                <view class="usename">啦啦了</view>
-                <view class="talkcont">哈哈今晚回来吃饭吗？</view>
-            </view>
-     </view>
+     </view> -->
      
   </view>
 </view>

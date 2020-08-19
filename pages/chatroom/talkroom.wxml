@@ -1,5 +1,5 @@
 <view class="container">
-<my-talk class="iner"></my-talk>
+<my-talk class="iner" talklist="{{talklist}}"></my-talk>
 <view class="teacher" wx:if="{{showtalk == 1}}">
    <i bindtap="topbtn" class="topbtncss" wx:if="{{topwindow == 1}}"><image src="../../img/icon1_r.png"></image></i>
    <i bindtap="rightbtn"  class="rightbtncss" wx:if="{{rightwindow == 1}}"><image src="../../img/icon2_r.png"></image></i>
@@ -32,7 +32,7 @@
 </view>
 <view class="fixtool">
   <view class="techroom_icon" bindtap="switch"><image src="{{talkbtn[showtalk]}}"></image></view>
-  <input class="weui-input" placeholder="评论"/>
-   <button class="fs" size="mini">发送</button>
+  <input class="weui-input" placeholder="评论" bindinput="liseninputcont" value="{{sendcont}}"/>
+   <button class="fs" size="mini" bindtap="send">发送</button>
 </view>
 </view>

@@ -89,7 +89,7 @@
           <view class="navicon"><image src="../../img/i9.png"></image></view>
           <view class="navtxt">新手必读</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="10">
           <view class="navicon"><image src="../../img/i10.png"></image></view>
           <view class="navtxt">加入我们</view>
       </view>
