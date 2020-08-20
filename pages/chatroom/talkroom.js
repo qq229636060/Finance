@@ -108,7 +108,6 @@ Page({
       switch (data['type']) {
         case chatType.login:
             this.sendToServer(chatType.login, 'I am login');
-//                sendToServer(chatType.chat_list,'I am get chat list');
             break;
         case chatType.ping:
             console.log(1111111111)

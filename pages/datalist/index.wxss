@@ -1,6 +1,8 @@
 /* pages/datalist/index.wxss */
-.fixtitle{ font-size: 28rpx; color: #646464; padding:10rpx 20rpx; box-sizing: border-box; border-bottom: solid 1rpx #dcdcdc;}
-.fixtop{ position: fixed; top:0; width: 100%;}
-.databox{margin-top:60rpx}
+.fixtitle{ font-size: 28rpx; color: #646464; padding:10rpx 20rpx; box-sizing: border-box; border-bottom: solid 1rpx #dcdcdc; text-align: center;}
+.fixtop{ position: fixed; top:0; width: 100%; overflow-x: scroll; background: #fff;}
+.databox{margin-top:60rpx; overflow-x: scroll; width: 100%;}
 .cred{ color: #fc432a;}
 .cgreen{ color: #3e8740;}
+.container{ width: 100%; overflow-x: scroll;}
+.left{text-align: left;}

@@ -37,7 +37,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/datalist/index",
         "iconPath": "img/quotation.png",
         "selectedIconPath": "img/quotation-g.png",
         "text": "行情"

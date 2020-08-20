@@ -25,15 +25,17 @@ const requestAjax = function (url, postData, types,message, success, fail) {
   }catch (e) {
     loctoken = ""
   }
-  wx.showNavigationBarLoading()
-  if (message != "") {
-    wx.showLoading({
-      title: message,
-    })
+  if(url != '/home/stock/allstock'){
+    wx.showNavigationBarLoading()
+    if (message != "") {
+      wx.showLoading({
+        title: message,
+      })
+    }
   }
   wx.request({
   //可以写上请求的域名  后期改测试服正式服 改一个地方就可以 前缀写上后期上线改地址好改
-    url: 'https://api.97ffw.com'+url,
+    url: 'http://f.iaiai.cn'+url,
     data: postData,
     header: {
       //'Content-Type': 'application/json' 默认
