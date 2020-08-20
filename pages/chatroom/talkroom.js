@@ -253,8 +253,8 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log("guanbi1")
-    wxst.onClose(() => {
+    console.log(wxst)
+    wxst.close(() => {
       console.info('连接关闭');
     });
   },
