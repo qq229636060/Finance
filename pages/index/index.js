@@ -6,7 +6,7 @@ var datalist_arr = ""
 var uid =1
 var t
 var chat_id = 'index_stock_room';
-var wxst
+var wxstindex
 var chatType = {
   login: 2,//登录
   ping: "ping",
@@ -29,20 +29,20 @@ Page({
     var _this = this
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
     var url = 'ws://47.111.253.245:7272';
-    wxst = wx.connectSocket({
+    wxstindex = wx.connectSocket({
       url: url,
       method: "GET",
     });
-    wxst.onOpen(res => {
+    wxstindex.onOpen(res => {
       console.log(res)
       console.info('连接打开成功');
       console.log(res)
     });
-    wxst.onError(res => {
+    wxstindex.onError(res => {
       console.info('连接识别');
       console.error(res);
     });
-    wxst.onMessage(res => {
+    wxstindex.onMessage(res => {
       var data = JSON.parse(res.data)
       //var data = res.data;
       console.log(data)
@@ -85,8 +85,8 @@ Page({
       uid: uid,
       role: 1,
     };
-    if (wxst.readyState == wxst.OPEN) {
-      wxst.send({
+    if (wxstindex.readyState == wxstindex.OPEN) {
+      wxstindex.send({
         data:JSON.stringify(data),
         success: (res) => {
           console.info('客户端发送成功');
@@ -157,7 +157,7 @@ Page({
       return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), this.floatMul(c / d, Math.pow(10, f - e));
     },
     onHide: function () {
-      wxst.close(() => {
+      wxstindex.close(() => {
         console.info('连接关闭');
       });
     },
@@ -167,7 +167,7 @@ Page({
      */
     onUnload: function () {
       // clearTimeout(t)
-      wxst.close(() => {
+      wxstindex.close(() => {
         console.info('连接关闭');
       });
     },
