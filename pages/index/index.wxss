@@ -54,3 +54,7 @@
   .newsbox .n_l .tag i{font-size: 26rpx; background-color: #f4f4f4;border:solid 1rpx #f66254; color:#f66254; border-radius: 20rpx; padding:3rpx 20rpx; margin-right: 20rpx;} 
   .newsbox .n_r{ width: 200rpx;}
   .newsbox .n_r image{ width: 200rpx; height: 150rpx; border-radius: 10rpx;}
+  .noticebar{background: #fc432a; color: #fff; padding:20rpx 30rpx; box-sizing: border-box; display: flex; align-items: center;}
+  .h45{ height: 45rpx; margin-left: 20rpx; line-height: 45rpx; overflow: hidden;}
+  .w1000{ width: 1000rpx;}
+  .f23{font-size: 23rpx;}

@@ -6,7 +6,8 @@ var datalist_arr = ""
 var uid =1
 var t
 var chat_id = 'index_stock_room';
-var wxstindex
+var wxstindex;
+var firstshow = true
 var chatType = {
   login: 2,//登录
   ping: "ping",
@@ -17,13 +18,19 @@ Page({
     indicatorDots: true,
     vertical: false,
     autoplay: true,
-    interval: 6000,
+    interval: 10000,
     duration: 500,
+    current:0,
     indicatorDots_pic: true,
     vertical_pic: false,
     autoplay_pic: true,
     interval_pic: 2000,
-    duration_pic: 500
+    duration_pic: 500,
+    datalist:"",
+    notice:"",
+    autoplay_not:true,
+    interval_not:5000,
+    duration_not:500
   },
   startConnect: function () {
     var _this = this
@@ -45,13 +52,14 @@ Page({
     wxstindex.onMessage(res => {
       var data = JSON.parse(res.data)
       //var data = res.data;
-      console.log(data)
+      //console.log(data)
       switch (data['type']) {
         case chatType.login:
             console.log(chatType.indextype)
             this.sendToServer(chatType.indextype, '获取数据');
             break;
-        case chatType.listtype:
+        case chatType.indextype:
+          console.log(data)
           datalist_arr = Object.values(data.msg);
           datalist_arr.forEach(function(item,index){
              if(item.yes_settle == null ){
@@ -68,14 +76,20 @@ Page({
                item.zf1 = _this.floatMul(Number(temp),100)+'%'
              }
           })
+          if(firstshow){
+            _this.setData({
+              current:1
+            });
+            firstshow = false
+          }
          _this.setData({
            datalist:datalist_arr
          })
-          
+         console.log(_this.data.datalist)
+         break;
         }
        
     });
-   
   },
   sendToServer: function (type, msg) {
     var data = {
@@ -173,8 +187,21 @@ Page({
     },
     onShow: function () {
       //this.getdata()
+      this.getpagedata()
       this.startConnect()
+
     },
+  getpagedata:function(){
+    var _this = this;
+    zajax.requestAjax('/home/index/index1','','get','正在加载',function(res){
+      if(res.code == 0){
+         console.log(res.data.notice)
+         _this.setData({
+           notice:res.data.notice
+         })
+      }
+    })
+  },
   gotonav:function(e){
      var e_id = e.currentTarget.dataset.id;
      switch(e_id){
