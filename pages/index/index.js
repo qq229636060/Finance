@@ -20,7 +20,7 @@ Page({
     autoplay: true,
     interval: 10000,
     duration: 500,
-    current:0,
+    current:-1,
     indicatorDots_pic: true,
     vertical_pic: false,
     autoplay_pic: true,
@@ -78,7 +78,7 @@ Page({
           })
           if(firstshow){
             _this.setData({
-              current:1
+              current:0
             });
             firstshow = false
           }
