@@ -32,7 +32,7 @@ Page({
   startConnect: function () {
     var _this = this
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
-    var url = 'ws://47.111.253.245:7272';
+    var url = 'wss://api.qihuozzb.com/wss';
     wxst = wx.connectSocket({
       url: url,
       method: "GET",

@@ -35,7 +35,7 @@ const requestAjax = function (url, postData, types,message, success, fail) {
   }
   wx.request({
   //可以写上请求的域名  后期改测试服正式服 改一个地方就可以 前缀写上后期上线改地址好改
-    url: 'http://f.iaiai.cn'+url,
+    url: 'https://api.qihuozzb.com/'+url,
     data: postData,
     header: {
       //'Content-Type': 'application/json' 默认

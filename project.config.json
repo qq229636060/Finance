@@ -25,14 +25,14 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false,
 		"compileHotReLoad": false,
 		"useIsolateContext": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.12.0",
-	"appid": "wx321fe4cd8a6a0397",
+	"appid": "wxecd350bcc6b5e1e0",
 	"projectname": "Finance",
 	"debugOptions": {
 		"hidedInDevtools": []
