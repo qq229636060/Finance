@@ -73,7 +73,6 @@ Page({
     if (app.globalData.userInfo) {
       wx.login({
         success: res => {
-          console.log(res);
           var data={
             code:res.code,
             encryptedData:app.globalData.usedata.encryptedData,
@@ -81,7 +80,6 @@ Page({
             signature:app.globalData.usedata.signature,
             rawData:app.globalData.usedata.rawData
           }
-          console.log("aaa")
         }
       })
     } else if (this.data.canIUse){

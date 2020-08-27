@@ -30,7 +30,8 @@ Page({
     notice:"",
     autoplay_not:true,
     interval_not:5000,
-    duration_not:500
+    duration_not:500,
+    wzlist:""
   },
   startConnect: function () {
     var _this = this
@@ -85,7 +86,6 @@ Page({
          _this.setData({
            datalist:datalist_arr
          })
-         console.log(_this.data.datalist)
          break;
         }
        
@@ -189,6 +189,7 @@ Page({
       //this.getdata()
       this.getpagedata()
       this.startConnect()
+      this.gettxt()
 
     },
   getpagedata:function(){
@@ -201,6 +202,22 @@ Page({
          })
       }
     })
+  },
+  gettxt:function(){
+    var _this = this;
+    zajax.requestAjax('/home/article/list1?type=5','','get','正在加载',function(res){
+      if(res.code == 0){
+         _this.setData({
+           wzlist:res.data
+         })
+      }
+    })
+  },
+  gotocont:function(e){
+    var ids = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url:"../oneday_news/index?id="+ids
+    });
   },
   gotonav:function(e){
      var e_id = e.currentTarget.dataset.id;
