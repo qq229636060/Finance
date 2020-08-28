@@ -96,7 +96,7 @@
                 <view class="time">{{item.create_time}}</view>
                 <view class="tag"><i>原油</i><i>期货</i></view>
             </view>
-            <view class="n_r"><image src="http://cms-bucket.ws.126.net/2020/0801/61580f94j00qed98w001nc000s600e3c.jpg?"></image></view>
+            <view class="n_r"><image src="{{item.cover}}"></image></view>
         </view>
   </view>
 </view>

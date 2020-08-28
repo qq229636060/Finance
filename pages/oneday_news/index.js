@@ -9,7 +9,8 @@ Page({
   data: {
       title:"",
       conts:"",
-      ids:""
+      ids:"",
+      time:""
   },
 
   /**
@@ -38,9 +39,13 @@ Page({
     zajax.requestAjax('/home/article/detail',data,'get','正在加载',function(res){
       if(res.code == 0){
          var cont = res.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
+         var times =  new Date(res.data.create_time *1000)
+         console.log(times)
+         
          _this.setData({
             title:res.data.title,
-            conts:cont
+            conts:cont,
+            time:res.data.create_time *1000
          })
       }
     })
@@ -76,9 +81,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  
 
   /**
    * 页面上拉触底事件的处理函数

@@ -1,5 +1,6 @@
 // pages/user/index.js
-const app = getApp();
+const zajax = require('../../utils/comm.js');
+const app = getApp()
 Page({
 
   /**
@@ -73,13 +74,20 @@ Page({
     if (app.globalData.userInfo) {
       wx.login({
         success: res => {
+          console.log(res)
           var data={
-            code:res.code,
-            encryptedData:app.globalData.usedata.encryptedData,
-            iv:app.globalData.usedata.iv,
-            signature:app.globalData.usedata.signature,
-            rawData:app.globalData.usedata.rawData
+            code:res.code
+            // encryptedData:app.globalData.usedata.encryptedData,
+            // iv:app.globalData.usedata.iv,
+            // signature:app.globalData.usedata.signature,
+            // rawData:app.globalData.usedata.rawData
           }
+          zajax.requestAjax('/home/wechat/login',data,'post','正在加载',function(res){
+            if(res.code == 0){
+              console.log(res);
+             //_this.gotomobile()
+            }
+         })
         }
       })
     } else if (this.data.canIUse){

@@ -171,9 +171,12 @@ Page({
       return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), this.floatMul(c / d, Math.pow(10, f - e));
     },
     onHide: function () {
-      wxstindex.close(() => {
-        console.info('连接关闭');
-      });
+      console.log(wxstindex)
+      if(wxstindex){
+        wxstindex.close(() => {
+          console.info('连接关闭');
+        });
+      }
     },
   
     /**
@@ -208,7 +211,7 @@ Page({
     zajax.requestAjax('/home/article/list1?type=5','','get','正在加载',function(res){
       if(res.code == 0){
          _this.setData({
-           wzlist:res.data
+           wzlist:res.data.list
          })
       }
     })
@@ -268,6 +271,16 @@ Page({
                 });
                 break;
      }  
+  },
+  reset () {
+    wx.stopPullDownRefresh()
+    wx.hideNavigationBarLoading();
+  },
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    setTimeout(() => {
+      this.reset();
+    }, 3000);
   },
   onLoad: function () {
 

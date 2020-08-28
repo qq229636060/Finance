@@ -1,10 +1,12 @@
 <!--pages/oneday_news/index.wxml-->
+
 <view class="container">
   <view class="contbox">
   <view class="news_title">{{title}}</view>
-  <view class="fbtime">08:45:34</view>
+  <view class="fbtime">{{dateFr.getDate(time)}}</view>
   <view class="cont_text">
     <rich-text nodes="{{conts}}" data-data="{{conts}}" bindtap="tap"></rich-text>
     </view>
     </view>
 </view>
+<wxs module="dateFr" src="../../utils/formatdate.wxs"></wxs>
