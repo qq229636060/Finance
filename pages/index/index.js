@@ -42,9 +42,7 @@ Page({
       method: "GET",
     });
     wxstindex.onOpen(res => {
-      console.log(res)
       console.info('连接打开成功');
-      console.log(res)
     });
     wxstindex.onError(res => {
       console.info('连接识别');

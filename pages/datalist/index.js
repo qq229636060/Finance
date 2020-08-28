@@ -38,9 +38,7 @@ Page({
       method: "GET",
     });
     wxst.onOpen(res => {
-      console.log(res)
       console.info('连接打开成功');
-      console.log(res)
     });
     wxst.onError(res => {
       console.info('连接识别');
