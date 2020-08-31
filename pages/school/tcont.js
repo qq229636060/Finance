@@ -1,24 +1,44 @@
 // pages/school/tcont.js
+const zajax = require('../../utils/comm.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+     cont_id:"",
+     zj_list:"",
+     number:""
   },
-  goto_textcont:function(){
+  goto_textcont:function(e){
+    var ids = e.currentTarget.dataset.id
     wx.navigateTo({
-      url:"text_cont"
+      url:"text_cont?id="+ids
     });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+     this.setData({
+       cont_id:options.id
+     })
+     this.getlistdata()
   },
-
+  getlistdata(){
+    var _this = this
+    var data = {
+      pid:this.data.cont_id
+    }
+    zajax.requestAjax('/home/course/chapter',data,'get','正在加载',function(res){
+        if(res.code == 0){
+          _this.setData({
+            zj_list:res.data.list,
+            number:res.data.list.length
+          })
+        }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

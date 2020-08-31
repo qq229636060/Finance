@@ -1,20 +1,37 @@
 // pages/school/text_cont.js
+const zajax = require('../../utils/comm.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      id:"",
+      conts:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      this.setData({
+        id:options.id
+      })
+      this.getcont()
   },
-
+  getcont:function(){
+    var _this = this;
+    var data = {
+      id:this.data.id
+    }
+    zajax.requestAjax('/home/course/detail',data,'get','正在加载',function(res){
+       if(res.code == 0){
+          _this.setData({
+            conts:res.data
+          })
+       } 
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

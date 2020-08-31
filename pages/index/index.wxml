@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-<view class="noticebar">
+<view class="noticebar" wx:if="{{notice.length != 0}}">
     <van-icon name="volume-o" />
     <view class="page-section page-section-spacing swiper w1000">
       <swiper autoplay="{{autoplay_not}}" interval="{{interval_not}}" duration="{{duration_not}}" class="h45" vertical="true">
@@ -94,7 +94,7 @@
             <view class="n_l">
                 <view>{{item.title}}</view>
                 <view class="time">{{item.create_time}}</view>
-                <view class="tag"><i>原油</i><i>期货</i></view>
+                <view class="tag" wx:if="{{item.tag.length != 1}}"><i wx:for='{{item.tag}}' wx:key="this">{{item}}</i></view>
             </view>
             <view class="n_r"><image src="{{item.cover}}"></image></view>
         </view>

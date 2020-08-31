@@ -3,20 +3,20 @@
   <view class="tpic">
       <image src="https://obj.pipi.cn/friday/34c59d5cfc8d706902cbc00e686953d0.jpg"></image>
       <view class="fixb">
-          <view class="fixb_l">本课程共6节</view>
-          <view class="fixb_r"> <view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view></view>
+          <view class="fixb_l">本课程共{{number}}节</view>
+          <!-- <view class="fixb_r"> <view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view></view> -->
       </view>
   </view>
   <view class="vlist">
-       <view class="vcbox" bindtap="goto_textcont">
+       <view class="vcbox" bindtap="goto_textcont" wx:for="{{zj_list}}" wx:key="this" data-id="{{item.id}}">
           <view class="vbox_l"><i></i></view>
           <view class="vbox_m">
-            <view>什么是期货</view>
-            <view>来源：美尔雅期货</view>
+            <view>{{item.title}}</view>
+            <view>时间：{{item.create_time}}</view>
           </view>
-           <view class="vbox_r">
+           <!-- <view class="vbox_r">
             <view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view>
-          </view>
+          </view> -->
       </view>
   </view>
 </view>
