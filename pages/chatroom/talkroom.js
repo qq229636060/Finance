@@ -184,6 +184,7 @@ sendToServer: function (type, msg) {
       from_id: uid,
       from_user: from_user
     }
+    console.log(sayData)
     this.sayContent(sayData);
   },
   gettime:function() {

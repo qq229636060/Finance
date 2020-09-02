@@ -1,11 +1,13 @@
 // pages/chatroom/list.js
+const zajax = require('../../utils/comm.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      list:""
   },
 
   /**
@@ -15,11 +17,22 @@ Page({
     wx.setNavigationBarTitle({
       title:"磐石服务"
     })
+    this.getlist()
   },
   gototalk:function(){
     wx.navigateTo({
       url:"../chatroom/talkroom"
     });
+  },
+  getlist:function(){
+    var _this = this;
+    zajax.requestAjax('/home/chat/index','','get','正在加载',function(res){
+        if(res.code == 0){
+          _this.setData({
+            list:res.data
+          })
+        }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
