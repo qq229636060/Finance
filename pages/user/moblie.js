@@ -7,20 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      apid:"",
+      skey:""
   },
   getPhoneNumber (e) {
     console.log(e)
     wx.login({
       success: res => {
-        console.log(e.detail.iv)
-        console.log(e.detail.encryptedData)
         var data={
           code:res.code,
           encryptedData:e.detail.encryptedData,
-          iv:e.detail.iv
+          iv:e.detail.iv,
+          open_id:this.data.apid,
+          session_key:this.data.skey
         }
-        zajax.requestAjax('/api/wechat/mobile',data,'post','正在加载',function(res){
+        zajax.requestAjax('/api/wechat/register',data,'post','正在加载',function(res){
            if(res.code == 0){
             wx.setStorage({
               key:"token_data",
@@ -47,7 +48,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      console.log(options)
+      this.setData({
+        apid:options.opid,
+        skey:options.skey
+      })
   },
 
   /**

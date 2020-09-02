@@ -77,14 +77,21 @@ Page({
           console.log(res)
           var data={
             code:res.code,
-            encryptedData:app.globalData.usedata.encryptedData,
-            iv:app.globalData.usedata.iv,
-            signature:app.globalData.usedata.signature,
+            // encryptedData:app.globalData.usedata.encryptedData,
+            // iv:app.globalData.usedata.iv,
+            // signature:app.globalData.usedata.signature,
             rawData:app.globalData.usedata.rawData
           }
           zajax.requestAjax('/home/wechat/login',data,'post','正在加载',function(res){
             if(res.code == 0){
-              console.log(res);
+              if(res.code == 0){
+                if(!res.data.token){
+                  wx.navigateTo({
+                    url:"moblie?opid="+res.data.openid+'&skey='+res.data.session_key
+                  });
+                }
+                
+              }
              //_this.gotomobile()
             }
          })

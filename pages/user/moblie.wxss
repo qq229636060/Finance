@@ -1,4 +1,4 @@
-/* pages/user/userinfo.wxss */
+/* pages/user/moblie.wxss */
 .mbottom{
   width:602rpx;
   height:84rpx;
@@ -6,5 +6,6 @@
   background:rgba(60,189,57,1);
   border-radius:45rpx; color: #fff;
   padding: 0;
-  margin-top: 200rpx;
+  margin-top: 50rpx;
 }
+.tt{ font-size: 1.6rem;text-align: center;margin-top: 200rpx;}

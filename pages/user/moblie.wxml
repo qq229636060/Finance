@@ -1,0 +1,3 @@
+<!--pages/user/moblie.wxml-->
+<view class="tt">期货掌中宝</view>
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mbottom" style="width:602rpx">微信一键登录</button>

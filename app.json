@@ -13,7 +13,8 @@
     "pages/chatroom/talkroom",
     "pages/user/index",
     "pages/user/userinfo",
-    "pages/user/joinus"
+    "pages/user/joinus",
+    "pages/user/moblie"
   ],
   "permission": {
     "scope.userLocation": {
