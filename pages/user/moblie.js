@@ -18,7 +18,7 @@ Page({
           code:res.code,
           encryptedData:e.detail.encryptedData,
           iv:e.detail.iv,
-          open_id:this.data.apid,
+          openid:this.data.apid,
           session_key:this.data.skey
         }
         zajax.requestAjax('/api/wechat/register',data,'post','正在加载',function(res){
