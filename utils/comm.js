@@ -40,7 +40,7 @@ const requestAjax = function (url, postData, types,message, success, fail) {
     header: {
       //'Content-Type': 'application/json' 默认
       'content-type': 'application/x-www-form-urlencoded',
-      'token':loctoken,//根据自己的接口写header的传参
+      'Token':loctoken,//根据自己的接口写header的传参
       //'Logintime': logintime
     },
     method: types,//方法也可以改成变量 传入

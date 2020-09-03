@@ -19,9 +19,10 @@ Page({
     })
     this.getlist()
   },
-  gototalk:function(){
+  gototalk:function(e){
+    console.log(e)
     wx.navigateTo({
-      url:"../chatroom/talkroom"
+      url:"../chatroom/talkroom?id="+e.currentTarget.dataset.id
     });
   },
   getlist:function(){

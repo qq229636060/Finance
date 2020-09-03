@@ -1,7 +1,8 @@
 <!--pages/user/index.wxml-->
 <view class="useinfo">
-    <view class="userface"><image src="../../img/useface.png"></image></view>
-    <button open-type="getUserInfo" class="nonebtn" bindgetuserinfo='btn_sub' class="usename">点击登录</button>
+    <view class="userface"><image src="{{islogin ? '':'../../img/useface.png'}}"></image></view>
+    <button open-type="getUserInfo" class="nonebtn" bindgetuserinfo='btn_sub' class="usename" wx:if="{{!islogin}}">点击登录</button>
+    <view class="names" wx:if="{{islogin}}">名字</view>
     <view class="mt50">
       <van-cell is-link>
             <view slot="title" class="title">

@@ -71,7 +71,8 @@ Page({
     zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
       if(res.code == 0){
          _this.setData({
-            userinfo_data:res.data
+            userinfo_data:res.data,
+            islogin:true
          })
       }
     })

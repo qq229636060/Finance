@@ -31,7 +31,8 @@ Page({
     techertopAnimation:{},
     techerrightAnimation:{},
     talklist:"",
-    sendcont:""
+    sendcont:"",
+    roomid:""
   },
   animationend:function(){
     if(this.data.topwindow == 0){
@@ -119,7 +120,6 @@ Page({
         case chatType.say_in_room:
           console.log(uid && data['uid'] && uid != data['uid'])
             if (uid && data['uid'] && uid != data['uid']) {
-                
                 this.sayContent(data)
                 this.pageScrollToBottom();
             }
@@ -153,7 +153,7 @@ sendToServer: function (type, msg) {
   var data = {
     type: type,
     msg: msg,
-    chat_id: chat_id,
+    chat_id: this.data.roomid,
     uid: uid,
     role: 1,
   };
@@ -176,7 +176,7 @@ sendToServer: function (type, msg) {
     var time = this.gettime();
     this.sendToServer(chatType.say_in_room, this.data.sendcont);
     var sayData = {
-      chat_id: chat_id,
+      chat_id: this.data.roomid,
       role: 1,
       uid: uid,
       msg: this.data.sendcont,
@@ -219,10 +219,19 @@ sendToServer: function (type, msg) {
         sendcont:event.detail.value
       })
   },
+  teacherbox:function(){
+    var _this = this;
+    zajax.requestAjax('/home/chat/detail','','get','正在加载',function(res){
+
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+     this.setData({
+       roomid:options.id
+     })
      this.startConnect()
   },
 
@@ -236,8 +245,7 @@ sendToServer: function (type, msg) {
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (e) {
   },
 
   /**

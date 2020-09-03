@@ -1,6 +1,6 @@
 <!--pages/chatroom/list.wxml-->
 <view class="container">
-  <view class="roombox" wx:for="{{list}}" wx:key="this">
+  <view class="roombox" wx:for="{{list}}" wx:key="this" bindtap="gototalk" data-id="{{item.id}}">
     <view class="roombox_t">
       <view class="face">
           <image src="{{item.avatar}}"></image>
@@ -9,9 +9,9 @@
         <view class="roomtext_t">{{item.title}}</view>
         <view class="roomtext_b">{{item.desc}}</view>
       </view>
-      <view class="bottom_dy">订阅</view>
+      <!-- <view class="bottom_dy">订阅</view> -->
     </view>
-    <view class="roombox_b" bindtap="gototalk">
+    <view class="roombox_b" >
       <i></i> 
       <view class="txt">在线互动：老师在线辅导</view>
       <text>立即进入</text>
