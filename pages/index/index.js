@@ -3,7 +3,7 @@
 const zajax = require('../../utils/comm.js');
 const app = getApp()
 var datalist_arr = ""
-var uid =1
+// var uid =1
 var t
 var chat_id = 'index_stock_room';
 var wxstindex;
@@ -94,7 +94,7 @@ Page({
       type: type,
       msg: msg,
       chat_id: chat_id,
-      uid: uid,
+      token: 1,
       role: 1,
     };
     if (wxstindex.readyState == wxstindex.OPEN) {

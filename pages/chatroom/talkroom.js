@@ -1,6 +1,15 @@
 // pages/chatroom/talkroom.js
 var chat_id = 1;
 var uid =1
+var loctoken;
+try {
+  var value = wx.getStorageSync('token_data')
+  if(value) {
+    loctoken = value
+  }
+}catch (e) {
+  loctoken = ""
+}
 var wxst;
 var from_user = {}
 var chatType = {
@@ -150,11 +159,12 @@ Page({
   },
   
 sendToServer: function (type, msg) {
+  console.log(this.data.roomid)
   var data = {
     type: type,
     msg: msg,
     chat_id: this.data.roomid,
-    uid: uid,
+    toekn: loctoken,
     role: 1,
   };
   if (wxst.readyState == wxst.OPEN) {
@@ -178,7 +188,7 @@ sendToServer: function (type, msg) {
     var sayData = {
       chat_id: this.data.roomid,
       role: 1,
-      uid: uid,
+      toekn: loctoken,
       msg: this.data.sendcont,
       time: time,
       from_id: uid,
@@ -229,6 +239,7 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.id)
      this.setData({
        roomid:options.id
      })

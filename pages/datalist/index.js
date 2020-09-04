@@ -1,8 +1,8 @@
 // pages/datalist/index.js
 const zajax = require('../../utils/comm.js');
 var datalist_arr = ""
-var uid =1
-var t
+// var uid =1
+
 var chat_id = 'all_stock_room';
 var wxst
 var chatType = {
@@ -83,7 +83,7 @@ Page({
       type: type,
       msg: msg,
       chat_id: chat_id,
-      uid: uid,
+      token: 1,
       role: 1,
     };
     if (wxst.readyState == wxst.OPEN) {
