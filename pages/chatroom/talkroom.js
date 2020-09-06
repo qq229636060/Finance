@@ -218,6 +218,7 @@ sendToServer: function (type, msg) {
     console.log(data.uid)
      console.log(data.from_id == data.uid)
      if (data.from_id == data.uid || say == '1') {
+       
         var tmparr = this.data.talklist;
         if(data){
           tmparr.msg.push(data);
