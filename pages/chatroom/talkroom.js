@@ -1,6 +1,6 @@
 // pages/chatroom/talkroom.js
-var chat_id = 1;
-var uid =1
+// var chat_id = 1;
+// var uid =1
 var loctoken;
 try {
   var value = wx.getStorageSync('token_data')
@@ -96,7 +96,7 @@ Page({
   },
   startConnect: function () {
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
-    var url = 'ws://47.111.253.245:7272';
+    var url = 'wss://api.qihuozzb.com/wss';
     wxst = wx.connectSocket({
       url: url,
       method: "GET",
@@ -127,8 +127,7 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-          console.log(uid && data['uid'] && uid != data['uid'])
-            if (uid && data['uid'] && uid != data['uid']) {
+            if (data['uid'] && data['uid'] != data['from_id']) {
                 this.sayContent(data)
                 this.pageScrollToBottom();
             }
@@ -148,7 +147,7 @@ Page({
             break;
 
         case chatType.logout:
-            if (!data['msg'] && uid) {
+            if (!data['msg']) {
                 return;
             }
         //用户下线出路
@@ -191,11 +190,11 @@ sendToServer: function (type, msg) {
       toekn: loctoken,
       msg: this.data.sendcont,
       time: time,
-      from_id: uid,
-      from_user: from_user
+      from_id: 1,
+      from_user: []
     }
     console.log(sayData)
-    this.sayContent(sayData);
+    this.sayContent(sayData,'1');
   },
   gettime:function() {
       var date = new Date();
@@ -210,8 +209,8 @@ sendToServer: function (type, msg) {
       })
     }).exec()
   },
-  sayContent:function(data){
-    if (!uid || !data) return;
+  sayContent:function(data,say){
+    if (say != '1' || !data) return;
     // if (data.from_id == uid) {
         var tmparr = this.data.talklist;
         tmparr.msg.push(data);
