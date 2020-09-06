@@ -100,6 +100,9 @@ Page({
     wxst = wx.connectSocket({
       url: url,
       method: "GET",
+      data:{
+        toekn:loctoken
+      }
     });
     wxst.onOpen(res => {
       console.info('连接打开成功');
@@ -163,7 +166,7 @@ sendToServer: function (type, msg) {
     type: type,
     msg: msg,
     chat_id: this.data.roomid,
-    toekn: loctoken,
+    token: loctoken,
     role: 1,
   };
   if (wxst.readyState == wxst.OPEN) {
@@ -187,7 +190,7 @@ sendToServer: function (type, msg) {
     var sayData = {
       chat_id: this.data.roomid,
       role: 1,
-      toekn: loctoken,
+      token: loctoken,
       msg: this.data.sendcont,
       time: time,
       from_id: 1,
@@ -211,7 +214,10 @@ sendToServer: function (type, msg) {
   },
   sayContent:function(data,say){
     if (say != '1' || !data) return;
-    // if (data.from_id == uid) {
+    console.log(data)
+    console.log(data.uid)
+     console.log(data.from_id == data.uid)
+     if (data.from_id == data.uid || say == '1') {
         var tmparr = this.data.talklist;
         if(data){
           tmparr.msg.push(data);
@@ -221,7 +227,7 @@ sendToServer: function (type, msg) {
           })
         }
         
-    // }
+    }
 
     this.pageScrollToBottom();
   },

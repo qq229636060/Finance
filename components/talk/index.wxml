@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
   <view class="talk">
-     <view class="{{item.from_id == item.from_user.uid ? 'talkbox myself' : 'talkbox'}}" wx:for="{{talklist.msg}}" wx:key="this">
+     <view class="{{item.from_id == item.uid ? 'talkbox myself' : 'talkbox'}}" wx:for="{{talklist.msg}}" wx:key="this">
             <view class="talkbox_l">
-                <view class="talkboxface"><image src="../../temp_img/face.jpg"></image></view>
+                <view class="talkboxface"><image src="{{item.from_user.avatar}}"></image></view>
                 <view class="times">{{item.time}}</view>
             </view>
             <view class="talkbox_r">
