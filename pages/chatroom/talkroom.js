@@ -213,11 +213,14 @@ sendToServer: function (type, msg) {
     if (say != '1' || !data) return;
     // if (data.from_id == uid) {
         var tmparr = this.data.talklist;
-        tmparr.msg.push(data);
-        this.setData({
-            talklist:tmparr,
-            sendcont:""
-        })
+        if(data){
+          tmparr.msg.push(data);
+          this.setData({
+              talklist:tmparr,
+              sendcont:""
+          })
+        }
+        
     // }
 
     this.pageScrollToBottom();
