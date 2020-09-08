@@ -139,10 +139,11 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-            // if (data['uid'] && data['uid'] != data['from_id']) {
+             console.log(data)
+            //  if (data['uid'] && data['uid'] != data['from_id']) {
                 this.sayContent(data)
                 this.pageScrollToBottom();
-            // }
+            //  }
             return;
         case chatType.chat_list:
             console.log("a")
@@ -207,7 +208,7 @@ sendToServer: function (type, msg) {
       uid:1
     }
     console.log(app.globalData.userInfo)
-    this.sayContent(sayData,'1');
+    this.sayContent(sayData);
   },
   gettime:function() {
       var date = new Date();
@@ -222,8 +223,8 @@ sendToServer: function (type, msg) {
       })
     }).exec()
   },
-  sayContent:function(data,say){
-    if (say != '1' || !data) return;
+  sayContent:function(data){
+    if (!data) return;
     console.log(data)
     console.log(data.uid)
      console.log(data.from_id == data.uid)
