@@ -5,16 +5,16 @@
    <i bindtap="rightbtn"  class="rightbtncss" wx:if="{{rightwindow == 1}}"><image src="../../img/icon2_r.png"></image></i>
    <view class="teacher_title" animation="{{techertopAnimation}}" bindtransitionend='animationend'>
    <i bindtap="topbtn"><image src="../../img/icon1.png"></image></i>
-   策略仅供参考，不作为买卖依据！本服务团队秉承严谨、客观的角度为投资者提供市场资讯服务，但是市场对资讯的反馈存在不可控因素，本公司资讯服务仅供参考，并不能取代您自己的投资判断，也不会降低金融产品的固有风险，不作为买卖依据，建议投资者自主决定交易，自负风险。市场有风险，入市需谨慎！
+     {{techerbox.chat.desc}}
    </view>
    <view class="teacher_right" animation="{{techerrightAnimation}}" bindtransitionend='animationend_rightbox'>
     <i bindtap="rightbtn" wx:if="{{rightwindow == 0}}"><image src="../../img/icon2.png"></image></i>
-    <view class="teachbox">
+    <view class="teachbox" wx:for="{{techerbox.suggest}}" wx:key="this">
        <view class="teachbox_t">
-          <view class="teachface"><image src="../../temp_img/face.jpg"></image></view>
+          <view class="teachface"><image src="{{item.teacher.avatar}}"></image></view>
           <view class="teachtxt">
-              <view>焦炭2009</view>
-              <view>2020-06-27 09:09:44</view>
+              <view>{{item.stock}}</view>
+              <view>{{item.create_time}}</view>
               <view>区间：1946~1948</view>
               <view>止损：1930</view>
               <view>理由：1935支撑位反弹</view>

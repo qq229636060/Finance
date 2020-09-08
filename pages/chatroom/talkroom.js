@@ -1,6 +1,8 @@
 // pages/chatroom/talkroom.js
 // var chat_id = 1;
 // var uid =1
+const zajax = require('../../utils/comm.js');
+const app = getApp()
 var loctoken;
 try {
   var value = wx.getStorageSync('token_data')
@@ -41,7 +43,8 @@ Page({
     techerrightAnimation:{},
     talklist:"",
     sendcont:"",
-    roomid:""
+    roomid:"",
+    techerbox:""
   },
   animationend:function(){
     if(this.data.topwindow == 0){
@@ -85,6 +88,7 @@ Page({
   },
   switch:function(){
      if(this.data.showtalk == 0){
+       this.teacherbox()
         this.setData({
           showtalk:1
         })
@@ -93,6 +97,11 @@ Page({
         showtalk:0
       })
      }
+     console.log(wxst)
+     wxst.close(() => {
+      console.info('连接关闭');
+      });
+     this.startConnect()
   },
   startConnect: function () {
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
@@ -130,10 +139,10 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-            if (data['uid'] && data['uid'] != data['from_id']) {
+            // if (data['uid'] && data['uid'] != data['from_id']) {
                 this.sayContent(data)
                 this.pageScrollToBottom();
-            }
+            // }
             return;
         case chatType.chat_list:
             console.log("a")
@@ -194,9 +203,10 @@ sendToServer: function (type, msg) {
       msg: this.data.sendcont,
       time: time,
       from_id: 1,
-      from_user: []
+      from_user:{avatar:app.globalData.userInfo.avatarUrl},
+      uid:1
     }
-    console.log(sayData)
+    console.log(app.globalData.userInfo)
     this.sayContent(sayData,'1');
   },
   gettime:function() {
@@ -218,7 +228,6 @@ sendToServer: function (type, msg) {
     console.log(data.uid)
      console.log(data.from_id == data.uid)
      if (data.from_id == data.uid || say == '1') {
-       
         var tmparr = this.data.talklist;
         if(data){
           tmparr.msg.push(data);
@@ -240,8 +249,11 @@ sendToServer: function (type, msg) {
   },
   teacherbox:function(){
     var _this = this;
-    zajax.requestAjax('/home/chat/detail','','get','正在加载',function(res){
-
+    var data = { id: this.data.roomid}
+    zajax.requestAjax('/home/chat/detail',data,'get','正在加载',function(res){
+        _this.setData({
+          techerbox:res.data
+        })
     })
   },
   /**
@@ -273,9 +285,9 @@ sendToServer: function (type, msg) {
    */
   onHide: function () {
     console.log("guanbi")
-    wxst.onClose(() => {
+    wxst.close(() => {
       console.info('连接关闭');
-    });
+      });
   },
 
   /**

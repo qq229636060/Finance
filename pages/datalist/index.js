@@ -205,7 +205,7 @@ Page({
   onHide: function () {
     wxst.close(() => {
       console.info('连接关闭');
-    });
+      });
   },
 
   /**
