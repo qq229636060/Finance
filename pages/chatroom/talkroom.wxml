@@ -10,21 +10,21 @@
    <view class="teacher_right" animation="{{techerrightAnimation}}" bindtransitionend='animationend_rightbox'>
     <i bindtap="rightbtn" wx:if="{{rightwindow == 0}}"><image src="../../img/icon2.png"></image></i>
     <view class="teachbox" wx:for="{{techerbox.suggest}}" wx:key="this">
+       <image src="../../img/icon_t.png" class="ping" wx:if="{{item.close == 1}}"></image>
        <view class="teachbox_t">
           <view class="teachface"><image src="{{item.teacher.avatar}}"></image></view>
           <view class="teachtxt">
               <view>{{item.stock}}</view>
-              <view>{{item.create_time}}</view>
-              <view>区间：1946~1948</view>
-              <view>止损：1930</view>
-              <view>理由：1935支撑位反弹</view>
+              <view>{{dateFr.getDate(item.create_time*1000)}}</view>
+              <view>区间：{{item.range}}</view>
+              <view>止损：{{item.stop}}</view>
+              <view>理由：{{item.reason}}</view>
           </view>
-          <view class="redicont">买入</view>
+          <view class="redicont" wx:if="{{item.updown == 0}}">买入</view>
+          <view class="redicont greens" wx:else>卖出</view>
        </view>
-       <view class="teachbox_b">
-         <view>1.短期看1972附近</view>
-         <view>2.1957附近止盈减仓</view>
-         <view>3.1954止盈</view>
+       <view class="teachbox_b" wx:if="{{item.content != ''}}">
+           {{item.content}}
        </view>
        <view class="textsz">策略仅供参考，不作为买卖依据</view>
     </view>
@@ -32,7 +32,9 @@
 </view>
 <view class="fixtool">
   <view class="techroom_icon" bindtap="switch"><image src="{{talkbtn[showtalk]}}"></image></view>
-  <input class="weui-input" placeholder="评论" bindinput="liseninputcont" value="{{sendcont}}"/>
-   <button class="fs" size="mini" bindtap="send">发送</button>
+  <input class="weui-input" placeholder="评论" bindinput="liseninputcont" value="{{sendcont}}" disabled='{{showtalk == 1 ? true:false}}'/>
+   <button class="fs" size="mini" bindtap="send" wx:if="{{showtalk == 0}}">发送</button>
+   <button class="fs" size="mini" disabled wx:else >发送</button>
 </view>
 </view>
+<wxs module="dateFr" src="../../utils/formatdate.wxs"></wxs>

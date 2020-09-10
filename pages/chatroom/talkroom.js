@@ -27,6 +27,7 @@ var chatType = {
   logout: 10,//登出
   allow: 11,//审核通过
   refuse: 12,//审核通过
+  teach_talk:19//老师频道
 };
 Page({
   /**
@@ -129,7 +130,11 @@ Page({
       }
       switch (data['type']) {
         case chatType.login:
-            this.sendToServer(chatType.login, 'I am login');
+            if(this.data.showtalk == 1){
+              this.sendToServer(chatType.teach_talk, 'I am login');
+            }else{
+              this.sendToServer(chatType.login, 'I am login');
+            }
             break;
         case chatType.ping:
             console.log(1111111111)

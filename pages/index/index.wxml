@@ -22,14 +22,14 @@
           <swiper-item class="flex3">
             <view class="{{item.zf < 0 ? 'swiper-item green':'swiper-item'}}" wx:for="{{datalist}}" wx:key="this" wx:for-index="idx" wx:if="{{idx<3}}"> 
                 <view>{{item.name}}</view>
-                <view>{{item.newest == null ? '0' : item.newest}}</view>
+                <view class="f40">{{item.newest == null ? '0' : item.newest}}</view>
                 <view>{{item.zf}}  {{item.zf1}}</view>
             </view>
           </swiper-item>
          <swiper-item class="flex3">
             <view class="{{item.zf < 0 ? 'swiper-item green':'swiper-item'}}" wx:for="{{datalist}}" wx:key="this" wx:for-index="idx" wx:if="{{idx>=3}}"> 
                 <view>{{item.name}}</view>
-                <view>{{item.newest == null ? '0' : item.newest}}</view>
+                <view class="f40">{{item.newest == null ? '0' : item.newest}}</view>
                 <view>{{item.zf}}  {{item.zf1}}</view>
             </view>
           </swiper-item>
