@@ -45,7 +45,8 @@ Page({
     talklist:"",
     sendcont:"",
     roomid:"",
-    techerbox:""
+    techerbox:"",
+    myuid:""
   },
   animationend:function(){
     if(this.data.topwindow == 0){
@@ -144,11 +145,12 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-             console.log(data)
-            //  if (data['uid'] && data['uid'] != data['from_id']) {
+              console.log(data['from_id'])
+              if (this.data.myuid != data['from_id']) {
+                console.log("oooo")
                 this.sayContent(data)
                 this.pageScrollToBottom();
-            //  }
+              }
             return;
         case chatType.chat_list:
             console.log("a")
@@ -158,6 +160,8 @@ Page({
           console.log("b")
             break;
         case chatType.record_history:
+            console.log(this.data.myuid)
+            data['myuid'] = this.data.myuid
             this.setData({
               talklist:data
             })
@@ -176,7 +180,6 @@ Page({
   },
   
 sendToServer: function (type, msg) {
-  console.log(this.data.roomid)
   var data = {
     type: type,
     msg: msg,
@@ -210,7 +213,7 @@ sendToServer: function (type, msg) {
       time: time,
       from_id: 1,
       from_user:{avatar:app.globalData.userInfo.avatarUrl},
-      uid:1
+      uid:this.data.myuid
     }
     console.log(app.globalData.userInfo)
     this.sayContent(sayData);
@@ -230,10 +233,8 @@ sendToServer: function (type, msg) {
   },
   sayContent:function(data){
     if (!data) return;
-    console.log(data)
-    console.log(data.uid)
-     console.log(data.from_id == data.uid)
-     if (data.from_id == data.uid || say == '1') {
+     console.log(this.data.talklist)
+
         var tmparr = this.data.talklist;
         if(data){
           tmparr.msg.push(data);
@@ -243,7 +244,7 @@ sendToServer: function (type, msg) {
           })
         }
         
-    }
+    
 
     this.pageScrollToBottom();
   },
@@ -262,14 +263,24 @@ sendToServer: function (type, msg) {
         })
     })
   },
+  getuserinfo:function(){
+    var _this = this;
+    zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
+      if(res.code == 0){
+        _this.setData({
+          myuid:res.data.id
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id)
      this.setData({
        roomid:options.id
      })
+     this.getuserinfo()
      this.startConnect()
   },
 
