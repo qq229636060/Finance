@@ -177,14 +177,13 @@ Page({
         case chatType.ping:
             console.log(1111111111)
             //维持心跳
-            this.sendToServer(chatType.pong, "");
+            this.sendToServer(chatType.ping, "");
             break;
         case chatType.say:
           
         case chatType.say_in_room:
               console.log(data['from_id'])
               if (this.data.myuid != data['from_id']) {
-                console.log("oooo")
                 this.sayContent(data)
                 this.pageScrollToBottom();
               }
@@ -197,7 +196,6 @@ Page({
           console.log("b")
             break;
         case chatType.record_history:
-            console.log(this.data.myuid)
             data['myuid'] = this.data.myuid
             this.setData({
               talklist:data
