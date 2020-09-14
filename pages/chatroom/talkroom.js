@@ -27,6 +27,7 @@ var chatType = {
   chat_list: 5,//获取人
   connect: 7,
   ping: "ping",
+  pong:6,
   record_history: 8,
   delete: 9,//
   logout: 10,//登出
@@ -177,7 +178,7 @@ Page({
         case chatType.ping:
             console.log(1111111111)
             //维持心跳
-            this.sendToServer(chatType.ping, "");
+            this.sendToServer(chatType.pong, "");
             break;
         case chatType.say:
           
