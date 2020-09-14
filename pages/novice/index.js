@@ -1,11 +1,13 @@
 // pages/novice/index.js
+const zajax = require('../../utils/comm.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    wzlist:""
   },
 
   /**
@@ -15,8 +17,18 @@ Page({
     wx.setNavigationBarTitle({
       title: '新手必读'
     })
+    this.getdata()
   },
-
+  getdata:function(){
+    var _this = this;
+    zajax.requestAjax('/home/article/list1?type=4','','get','正在加载',function(res){
+      if(res.code == 0){
+        _this.setData({
+          wzlist:res.data.list
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

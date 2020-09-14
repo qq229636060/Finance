@@ -33,8 +33,17 @@
 <view class="fixtool">
   <view class="techroom_icon" bindtap="switch"><image src="{{talkbtn[showtalk]}}"></image></view>
   <input class="weui-input" placeholder="评论" bindinput="liseninputcont" value="{{sendcont}}" disabled='{{showtalk == 1 ? true:false}}'/>
+   <view class="emojiface" catchtap="toggleEmojis"><image src="../../img/emoji.png"></image></view>
    <button class="fs" size="mini" bindtap="send" wx:if="{{showtalk == 0}}">发送</button>
    <button class="fs" size="mini" disabled wx:else >发送</button>
 </view>
+      <view wx:if="{{showEmojis}}" class="emojis_box">
+        <view class="emoji_wrap" wx:for="{{emojiList}}" wx:key="key">
+          <image catchtap="clickEmoji" src="{{item.img}}" data-key="{{item.key}}" class="emoji"></image>
+        </view>
+        <view class="emoji_wrap">
+          <text catchtap="sendMsg" class="emoji_send">发送</text>
+        </view>
+      </view>
 </view>
 <wxs module="dateFr" src="../../utils/formatdate.wxs"></wxs>

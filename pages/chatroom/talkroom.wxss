@@ -7,7 +7,7 @@ page{
 .fixtool{ width: 100%; height: 100rpx; background-color: #f7f7f7; position: fixed; bottom: 0; display: flex; align-items: center; padding: 0 30rpx; box-sizing: border-box; z-index: 10;}
 .techroom_icon{ width: 60rpx; height: 60rpx; margin-right: 20rpx;}
 .techroom_icon image{ width: 60rpx; height: 60rpx;}
-.weui-input{ width: 485rpx; height: 60rpx; background: #fff; padding: 0 30rpx; box-sizing: border-box; border-radius: 10rpx;}
+.weui-input{ width: 425rpx; height: 60rpx; background: #fff; padding: 0 30rpx; box-sizing: border-box; border-radius: 10rpx;}
 .fs{ width: 100rpx; height: 60rpx; line-height: 60rpx; padding: 0;background: #fb432a; color: #fff;}
 .iner{display: block; width: 100%; height: 100%; overflow-y: scroll;}
 .teacher_title{ width: 100%; height: 190rpx; background: #fff; position: fixed; top:0; font-size: 23rpx; padding:20rpx 40rpx; box-sizing: border-box; z-index: 9; border-bottom: solid 1rpx #eee;} 
@@ -30,3 +30,41 @@ page{
 .rightbtncss{width:55rpx; height: 77rpx; position:fixed; right: -10rpx; top:50%;  margin-top:-36rpx}
 .rightbtncss image{ width: 55rpx; height: 77rpx;}
 .ping{ width:190rpx; height: 203rpx; position: absolute; top:10rpx; right: 10rpx;}
+.emojiface{ width: 40rpx; height: 40rpx; margin:0 20rpx;}
+.emojiface image{ width: 40rpx; height: 40rpx;}
+.emojis_box,
+.files_box {
+  background: #fff;
+  border-top: 1px solid #ccc;
+  height: 150px;
+  padding: 10px 25rpx;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: flex-start;
+}
+
+.emoji_wrap {
+  flex: 0 0 100rpx;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji {
+  width: 28px;
+  height: 28px;
+}
+.emoji_wrap .emoji {
+  padding: 5px;
+}
+
+.emoji_send {
+  color: #fff;
+  background: #1aad19;
+  border-radius: 5px;
+  font-size: 9pt;
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+}

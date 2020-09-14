@@ -1,9 +1,14 @@
 // pages/chatroom/talkroom.js
 // var chat_id = 1;
 // var uid =1
+const { emojis, emojiToPath, textToEmoji } = require('../../utils/emojis');
 const zajax = require('../../utils/comm.js');
 const app = getApp()
 var loctoken;
+let windowHeight;
+const inputHeight = 51;
+const emojiHeight = 171;
+const timeouts = [];
 try {
   var value = wx.getStorageSync('token_data')
   if(value) {
@@ -46,7 +51,9 @@ Page({
     sendcont:"",
     roomid:"",
     techerbox:"",
-    myuid:""
+    myuid:"",
+    showEmojis:false,
+    emojiList:""
   },
   animationend:function(){
     if(this.data.topwindow == 0){
@@ -69,6 +76,26 @@ Page({
         rightwindow:0
      })
     }
+  },
+  toggleEmojis: function () {
+      if (this.data.showEmojis) {
+        this.setData({
+          showEmojis:false
+        })
+      } else {
+        this.setData({
+          showEmojis:true
+        });
+        this.goBottom(50);
+      }
+  },
+  // 滚动聊天
+  goBottom: function (n = 0) {
+    timeouts.push(setTimeout(() => {
+      this.setData({
+        scrollTop: 9999
+      })
+    }, n))
   },
   topbtn:function(){
     if(this.data.topwindow == 0){
@@ -106,6 +133,9 @@ Page({
      this.startConnect()
   },
   startConnect: function () {
+    wx.showLoading({
+      title: '加载中..',
+    })
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
     var url = 'wss://api.qihuozzb.com/wss';
     wxst = wx.connectSocket({
@@ -119,12 +149,13 @@ Page({
       console.info('连接打开成功');
     });
     wxst.onError(res => {
+      wx.hideLoading()
       console.info('连接识别');
       console.error(res);
     });
     wxst.onMessage(res => {
+      wx.hideLoading()
       var data = JSON.parse(res.data)
-      //var data = res.data;
       console.info(data);
       if (data.from_user != undefined && data.from_user) {
         from_user = data.from_user;
@@ -137,6 +168,12 @@ Page({
               this.sendToServer(chatType.login, 'I am login');
             }
             break;
+        case chatType.teach_talk:
+          this.setData({
+            talklist:data
+          })
+          this.pageScrollToBottom();
+          break;
         case chatType.ping:
             console.log(1111111111)
             //维持心跳
@@ -205,6 +242,7 @@ sendToServer: function (type, msg) {
     }
     var time = this.gettime();
     this.sendToServer(chatType.say_in_room, this.data.sendcont);
+    console.log(app.globalData.userInfo)
     var sayData = {
       chat_id: this.data.roomid,
       role: 1,
@@ -215,7 +253,16 @@ sendToServer: function (type, msg) {
       from_user:{avatar:app.globalData.userInfo.avatarUrl},
       uid:this.data.myuid
     }
-    console.log(app.globalData.userInfo)
+    console.log(textToEmoji(sayData.msg))
+    var tmpcont=''
+    textToEmoji(sayData.msg).forEach((item,index)=>{
+        if(item.msgType == "text"){
+          tmpcont += "<span>"+item.msgCont+"</span>"
+        }else if(item.msgType == "emoji"){
+          tmpcont += "<img src="+item.msgImage+" class='pp'></img>"
+        }
+    })
+    sayData.msg = tmpcont
     this.sayContent(sayData);
   },
   gettime:function() {
@@ -270,18 +317,34 @@ sendToServer: function (type, msg) {
         _this.setData({
           myuid:res.data.id
         })
+        _this.startConnect()
       }
     })
+  },
+  // 点击表情
+  clickEmoji: function (e) {
+    const { key } = e.currentTarget.dataset;
+    this.setData({ sendcont: this.data.sendcont + key });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const sysInfo = wx.getSystemInfoSync()
+    windowHeight = sysInfo.windowHeight
+    const scrollHeight = `${windowHeight - inputHeight}px`
+    //获取表情包
+    console.log(emojis)
+    const emojiList = Object.keys(emojis).map(key => ({
+      key: key,
+      img: emojiToPath(key)
+    }))
      this.setData({
-       roomid:options.id
+       roomid:options.id,
+       emojiList:emojiList
      })
      this.getuserinfo()
-     this.startConnect()
+    
   },
 
   /**
