@@ -57,6 +57,29 @@ const requestAjax = function (url, postData, types,message, success, fail) {
           duration: 2000
         })
       }
+      if(res.data.code == "-301"){
+        var pages = getCurrentPages() //获取加载的页面
+        var currentPage = pages[pages.length-1] //获取当前页面的对象
+        var url = currentPage.route
+        console.log(url)
+        if(url !='pages/user/index'){
+          wx.showModal({
+            title: '提示',
+            content: '你还未授权',
+            showCancel:false,
+            success (res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '../user/index'
+                })
+              }
+            }
+          })
+          
+         
+        }
+        return false
+      }
       if (res.statusCode == 200) {
         success(res.data)
       } else {

@@ -41,12 +41,16 @@ Page({
   onReady: function () {
 
   },
-
+  getuserinfo:function(){
+    var _this = this;
+    zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getuserinfo()
   },
 
   /**

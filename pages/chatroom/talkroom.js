@@ -3,20 +3,12 @@
 // var uid =1
 const { emojis, emojiToPath, textToEmoji } = require('../../utils/emojis');
 const zajax = require('../../utils/comm.js');
-const app = getApp()
-var loctoken;
+const app = getApp();
 let windowHeight;
 const inputHeight = 51;
 const emojiHeight = 171;
 const timeouts = [];
-try {
-  var value = wx.getStorageSync('token_data')
-  if(value) {
-    loctoken = value
-  }
-}catch (e) {
-  loctoken = ""
-}
+
 var wxst;
 var from_user = {}
 var chatType = {
@@ -57,7 +49,8 @@ Page({
     emojiList:"",
     setInter:'',
     emojibox_h:'',
-    footall_h:""
+    footall_h:"",
+    loctoken:""
   },
   startSetInter: function(){
       var that = this;
@@ -174,7 +167,7 @@ Page({
       url: url,
       method: "GET",
       data:{
-        toekn:loctoken
+        toekn:this.data.loctoken
       }
     });
     wxst.onOpen(res => {
@@ -266,7 +259,7 @@ sendToServer: function (type, msg) {
     type: type,
     msg: msg,
     chat_id: this.data.roomid,
-    token: loctoken,
+    token: _this.data.loctoken,
     role: 1,
   };
   if (wxst.readyState == wxst.OPEN) {
@@ -291,7 +284,7 @@ sendToServer: function (type, msg) {
     var sayData = {
       chat_id: this.data.roomid,
       role: 1,
-      token: loctoken,
+      token: this.data.loctoken,
       msg: this.data.sendcont,
       time: time,
       from_id: 1,
@@ -399,6 +392,18 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
+    try {
+      var value = wx.getStorageSync('token_data')
+      if(value) {
+        this.setData({
+          loctoken:value
+        })
+      }
+    }catch (e) {
+      this.setData({
+        loctoken:''
+      })
+    }
     this.startSetInter()
   },
 

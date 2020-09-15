@@ -169,7 +169,6 @@ Page({
       return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), this.floatMul(c / d, Math.pow(10, f - e));
     },
     onHide: function () {
-      console.log(wxstindex)
       if(wxstindex){
         wxstindex.close(() => {
           console.info('连接关闭');
@@ -182,9 +181,13 @@ Page({
      */
     onUnload: function () {
       // clearTimeout(t)
-      wxstindex.close(() => {
-        console.info('连接关闭');
-      });
+      console.log(wxstindex)
+      if(wxstindex){
+        wxstindex.close(() => {
+          console.info('连接关闭');
+        });
+      }
+     
     },
     onShow: function () {
       //this.getdata()
