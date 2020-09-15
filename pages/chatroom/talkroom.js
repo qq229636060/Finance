@@ -208,10 +208,10 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-              if (this.data.myuid != data['from_id']) {
+              // if (this.data.myuid != data['from_id']) {
                 this.sayContent(data)
                 this.pageScrollToBottom();
-              }
+              // }
             return;
         case chatType.chat_list:
             console.log("a")
