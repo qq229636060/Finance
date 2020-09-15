@@ -60,7 +60,7 @@ Page({
           function () {
             that.sendToServer(chatType.ping, "");
           }
-    ,5000);   
+    ,55000);   
   },
   animationend:function(){
     if(this.data.topwindow == 0){
