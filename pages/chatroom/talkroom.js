@@ -168,7 +168,8 @@ Page({
       url: url,
       method: "GET",
       data:{
-        toekn:this.data.loctoken
+        toekn:this.data.loctoken,
+        client:1
       }
     });
     wxst.onOpen(res => {
@@ -208,10 +209,10 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-              // if (this.data.myuid != data['from_id']) {
+              if (this.data.myuid != data['from_id'] && data['client'] !=1) {
                 this.sayContent(data)
                 this.pageScrollToBottom();
-              // }
+              }
             return;
         case chatType.chat_list:
             console.log("a")
@@ -262,6 +263,7 @@ sendToServer: function (type, msg) {
     chat_id: this.data.roomid,
     token: _this.data.loctoken,
     role: this.data.roleid,
+    client:1
   };
   if (wxst.readyState == wxst.OPEN) {
     wxst.send({
@@ -290,7 +292,8 @@ sendToServer: function (type, msg) {
       time: time,
       from_id: 1,
       from_user:{avatar:app.globalData.userInfo.avatarUrl},
-      uid:this.data.myuid
+      uid:this.data.myuid,
+      client:1
     }
     console.log(textToEmoji(sayData.msg))
     var tmpcont=''
