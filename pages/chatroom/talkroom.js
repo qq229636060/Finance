@@ -209,7 +209,9 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-              if (this.data.myuid != data['from_id'] && data['client'] !=1) {
+    if (this.data.myuid != data['from_id'] || 
+        (data['from_id'] == this.data.myuid&& data['client'] !=1))
+              {
                 this.sayContent(data)
                 this.pageScrollToBottom();
               }
