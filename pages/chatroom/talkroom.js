@@ -259,8 +259,7 @@ sendToServer: function (type, msg) {
     type: type,
     msg: msg,
     chat_id: this.data.roomid,
-    token: _this.data.loctoken,
-    role: 1,
+    token: _this.data.loctoken
   };
   if (wxst.readyState == wxst.OPEN) {
     wxst.send({
@@ -283,7 +282,6 @@ sendToServer: function (type, msg) {
     this.sendToServer(chatType.say_in_room, this.data.sendcont);
     var sayData = {
       chat_id: this.data.roomid,
-      role: 1,
       token: this.data.loctoken,
       msg: this.data.sendcont,
       time: time,
