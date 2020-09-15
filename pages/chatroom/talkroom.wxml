@@ -1,5 +1,5 @@
 <view class="container">
-<my-talk class="iner" talklist="{{talklist}}"></my-talk>
+<my-talk class="iner" talklist="{{talklist}}" style="padding-bottom:{{footall_h}}" catchtap='hideemoji'></my-talk>
 <view class="teacher" wx:if="{{showtalk == 1}}">
    <i bindtap="topbtn" class="topbtncss" wx:if="{{topwindow == 1}}"><image src="../../img/icon1_r.png"></image></i>
    <i bindtap="rightbtn"  class="rightbtncss" wx:if="{{rightwindow == 1}}"><image src="../../img/icon2_r.png"></image></i>
@@ -30,7 +30,7 @@
     </view>
    </view>
 </view>
-<view class="fixtool">
+<view class="fixtool" style='bottom:{{emojibox_h}}'>
   <view class="techroom_icon" bindtap="switch"><image src="{{talkbtn[showtalk]}}"></image></view>
   <input class="weui-input" placeholder="评论" bindinput="liseninputcont" value="{{sendcont}}" disabled='{{showtalk == 1 ? true:false}}'/>
    <view class="emojiface" catchtap="toggleEmojis"><image src="../../img/emoji.png"></image></view>
@@ -40,9 +40,6 @@
       <view wx:if="{{showEmojis}}" class="emojis_box">
         <view class="emoji_wrap" wx:for="{{emojiList}}" wx:key="key">
           <image catchtap="clickEmoji" src="{{item.img}}" data-key="{{item.key}}" class="emoji"></image>
-        </view>
-        <view class="emoji_wrap">
-          <text catchtap="sendMsg" class="emoji_send">发送</text>
         </view>
       </view>
 </view>

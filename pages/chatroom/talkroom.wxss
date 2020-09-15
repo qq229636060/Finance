@@ -41,6 +41,8 @@ page{
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
+  position: fixed;
+  bottom: 0;
 }
 
 .emoji_wrap {

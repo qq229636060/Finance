@@ -54,7 +54,19 @@ Page({
     techerbox:"",
     myuid:"",
     showEmojis:false,
-    emojiList:""
+    emojiList:"",
+    setInter:'',
+    emojibox_h:'',
+    footall_h:""
+  },
+  startSetInter: function(){
+      var that = this;
+      //将计时器赋值给setInter
+      that.data.setInter = setInterval(
+          function () {
+            that.sendToServer(chatType.ping, "");
+          }
+    ,5000);   
   },
   animationend:function(){
     if(this.data.topwindow == 0){
@@ -78,16 +90,34 @@ Page({
      })
     }
   },
+  emojibox_h:function(){
+    var query = wx.createSelectorQuery();
+    //选择id
+    var that = this;
+    query.select('.emojis_box').boundingClientRect(function (rect) {
+      console.log(rect.height + 100)
+      that.setData({
+        emojibox_h: rect.height + 'px',
+        footall_h: rect.height + 30 + 'px'
+      })
+    }).exec();
+  },
+  hideemoji:function(){
+    this.setData({
+      showEmojis:false,
+      emojibox_h:0,
+      footall_h:0
+    })
+  },
   toggleEmojis: function () {
       if (this.data.showEmojis) {
-        this.setData({
-          showEmojis:false
-        })
+        this.hideemoji()
       } else {
         this.setData({
           showEmojis:true
         });
-        this.goBottom(50);
+        this.emojibox_h()
+        this.pageScrollToBottom()
       }
   },
   // 滚动聊天
@@ -118,7 +148,8 @@ Page({
   },
   switch:function(){
      if(this.data.showtalk == 0){
-       this.teacherbox()
+        this.teacherbox()
+        this.hideemoji()
         this.setData({
           showtalk:1
         })
@@ -155,7 +186,7 @@ Page({
       console.error(res);
     });
     wxst.onMessage(res => {
-      wx.hideLoading()
+      wx.hideLoading();
       var data = JSON.parse(res.data)
       console.info(data);
       if (data.from_user != undefined && data.from_user) {
@@ -183,7 +214,6 @@ Page({
         case chatType.say:
           
         case chatType.say_in_room:
-              console.log(data['from_id'])
               if (this.data.myuid != data['from_id']) {
                 this.sayContent(data)
                 this.pageScrollToBottom();
@@ -197,7 +227,22 @@ Page({
           console.log("b")
             break;
         case chatType.record_history:
-            data['myuid'] = this.data.myuid
+            
+            if(data){
+              data['myuid'] = this.data.myuid;
+              data.msg.forEach((item,index)=>{
+                var tmpconts = ''
+                textToEmoji(item.msg).forEach((items,index)=>{
+                  if(items.msgType == "text"){
+                    tmpconts += "<span>"+items.msgCont+"</span>"
+                  }else if(items.msgType == "emoji"){
+                    tmpconts += "<img src="+items.msgImage+" class='pp'></img>"
+                  }
+                }) 
+                item.msg = tmpconts
+              })
+            }
+            console.log(data)
             this.setData({
               talklist:data
             })
@@ -216,6 +261,7 @@ Page({
   },
   
 sendToServer: function (type, msg) {
+  var _this = this
   var data = {
     type: type,
     msg: msg,
@@ -232,6 +278,7 @@ sendToServer: function (type, msg) {
       }
      });
     } else {
+      clearInterval(_this.data.setInter)
       console.error('连接已经关闭');
     }
   },
@@ -241,7 +288,6 @@ sendToServer: function (type, msg) {
     }
     var time = this.gettime();
     this.sendToServer(chatType.say_in_room, this.data.sendcont);
-    console.log(app.globalData.userInfo)
     var sayData = {
       chat_id: this.data.roomid,
       role: 1,
@@ -279,8 +325,6 @@ sendToServer: function (type, msg) {
   },
   sayContent:function(data){
     if (!data) return;
-     console.log(this.data.talklist)
-
         var tmparr = this.data.talklist;
         if(data){
           tmparr.msg.push(data);
@@ -295,7 +339,6 @@ sendToServer: function (type, msg) {
     this.pageScrollToBottom();
   },
   liseninputcont:function(event){
-      console.log(event)
       this.setData({
         sendcont:event.detail.value
       })
@@ -333,7 +376,6 @@ sendToServer: function (type, msg) {
     windowHeight = sysInfo.windowHeight
     const scrollHeight = `${windowHeight - inputHeight}px`
     //获取表情包
-    console.log(emojis)
     const emojiList = Object.keys(emojis).map(key => ({
       key: key,
       img: emojiToPath(key)
@@ -357,26 +399,29 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
+    this.startSetInter()
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log("guanbi")
+    var _this = this
     wxst.close(() => {
       console.info('连接关闭');
       });
+    clearInterval(_this.data.setInter)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log(wxst)
+    var _this = this
     wxst.close(() => {
       console.info('连接关闭');
     });
+    clearInterval(_this.data.setInter)
   },
 
   /**
