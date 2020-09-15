@@ -292,7 +292,7 @@ sendToServer: function (type, msg) {
       token: this.data.loctoken,
       msg: this.data.sendcont,
       time: time,
-      from_id: 1,
+      from_id: this.data.myuid,
       from_user:{avatar:app.globalData.userInfo.avatarUrl},
       uid:this.data.myuid,
       client:1
