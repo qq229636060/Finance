@@ -50,7 +50,8 @@ Page({
     setInter:'',
     emojibox_h:'',
     footall_h:"",
-    loctoken:""
+    loctoken:"",
+    roleid:""
   },
   startSetInter: function(){
       var that = this;
@@ -259,7 +260,8 @@ sendToServer: function (type, msg) {
     type: type,
     msg: msg,
     chat_id: this.data.roomid,
-    token: _this.data.loctoken
+    token: _this.data.loctoken,
+    role: this.data.roleid,
   };
   if (wxst.readyState == wxst.OPEN) {
     wxst.send({
@@ -282,6 +284,7 @@ sendToServer: function (type, msg) {
     this.sendToServer(chatType.say_in_room, this.data.sendcont);
     var sayData = {
       chat_id: this.data.roomid,
+      role: this.data.roleid,
       token: this.data.loctoken,
       msg: this.data.sendcont,
       time: time,
@@ -348,7 +351,8 @@ sendToServer: function (type, msg) {
     zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
       if(res.code == 0){
         _this.setData({
-          myuid:res.data.id
+          myuid:res.data.id,
+          roleid:res.data.role
         })
         _this.startConnect()
       }
