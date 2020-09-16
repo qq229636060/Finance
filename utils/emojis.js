@@ -24,7 +24,6 @@ const emojis = {
 
 // 将表情文字转为图片
 const emojiToPath = (i) => `../../img/emojis/${emojis[i]}.gif`
-console.log(emojiToPath)
 // 将聊天内容转为一个文字和图片混合的列表
 const textToEmoji = (s) => {
   // 定义正则对象
