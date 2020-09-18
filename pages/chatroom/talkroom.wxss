@@ -70,3 +70,4 @@ page{
   text-align: center;
   padding: 5px 0;
 }
+.smpic img{ width: 400rpx;}

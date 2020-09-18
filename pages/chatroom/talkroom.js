@@ -231,7 +231,9 @@ Page({
                 var tmpconts = ''
                 textToEmoji(item.msg).forEach((items,index)=>{
                   if(items.msgType == "text"){
-                    tmpconts += "<span>"+items.msgCont+"</span>"
+                    const regex = new RegExp('<img', 'gi');
+                    items.msgCont = items.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
+                    tmpconts += "<span class='smpic'>"+items.msgCont+"</span>"
                   }else if(items.msgType == "emoji"){
                     tmpconts += "<img src="+items.msgImage+" class='pp'></img>"
                   }
@@ -301,7 +303,9 @@ sendToServer: function (type, msg) {
     var tmpcont=''
     textToEmoji(sayData.msg).forEach((item,index)=>{
         if(item.msgType == "text"){
-          tmpcont += "<span>"+item.msgCont+"</span>"
+          const regex = new RegExp('<img', 'gi');
+          items.msgCont = items.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
+          tmpcont += "<span class='smpic'>"+item.msgCont+"</span>"
         }else if(item.msgType == "emoji"){
           tmpcont += "<img src="+item.msgImage+" class='pp'></img>"
         }
