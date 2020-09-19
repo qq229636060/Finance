@@ -11,3 +11,9 @@ page{
 .useicon{ width: 40rpx; height: 40rpx;display: inline-block; margin-right: 20rpx;}
 .useicon1{width: 40rpx; height: 33rpx;display: inline-block; margin-right: 20rpx;}
 .names{text-align: center;}
+.kefu{
+  width: 100% !important;
+  position: relative;
+  top: -96rpx;
+  opacity: 0;
+}

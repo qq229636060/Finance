@@ -9,6 +9,7 @@
     "pages/oneday_news/index",
     "pages/Economic/index",
     "pages/novice/index",
+    "pages/novice/list",
     "pages/chatroom/list",
     "pages/chatroom/talkroom",
     "pages/user/index",

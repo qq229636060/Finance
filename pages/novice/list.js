@@ -1,33 +1,24 @@
-// pages/novice/index.js
-const zajax = require('../../utils/comm.js');
-const app = getApp()
+// pages/novice/list.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    wzlist:""
+      nav_now:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '新手必读'
-    })
-    this.getdata()
+
   },
-  getdata:function(){
-    var _this = this;
-    zajax.requestAjax('home/noob/index?type=4','','get','正在加载',function(res){
-      if(res.code == 0){
-        _this.setData({
-          wzlist:res.data.list
-        })
-      }
-    })
+  nav:function(e){
+      console.log(e)
+      this.setData({
+         nav_now:e.currentTarget.dataset.id
+      })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -263,7 +263,7 @@ Page({
                   break;
      case '9':
                 wx.navigateTo({
-                      url:"../novice/index"
+                      url:"../novice/list"
                 });
                 break;
      case '10':

@@ -16,5 +16,7 @@
               <view class="van-cell-text">联系我们</view>
             </view>
       </van-cell>
+      <button size="20" session-from="weapp" class="kefu" open-type="contact">客服</button>
+
     </view>
 </view>
