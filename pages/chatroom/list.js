@@ -7,13 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-      list:""
+      list:"",
+      chatid:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    this.setData({
+      chatid:options.chatid
+    })
     wx.setNavigationBarTitle({
       title:"磐石服务"
     })
@@ -27,7 +32,10 @@ Page({
   },
   getlist:function(){
     var _this = this;
-    zajax.requestAjax('/home/chat/index','','get','正在加载',function(res){
+    var data ={
+      type:this.data.chatid
+    }
+    zajax.requestAjax('/home/chat/index',data,'get','正在加载',function(res){
         if(res.code == 0){
           _this.setData({
             list:res.data

@@ -228,7 +228,7 @@ Page({
      switch(e_id){
       case '1':
         wx.navigateTo({
-          url:"../chatroom/list"
+          url:"../chatroom/list?chatid=1"
         });
         break;
       case '2':
