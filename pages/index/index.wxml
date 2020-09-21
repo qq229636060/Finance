@@ -43,7 +43,7 @@
           <view class="navicon"><image src="../../img/i2.png"></image></view>
           <view class="navtxt">磐石学院</view>
       </view>
-       <view class="navbox">
+       <view class="navbox" bindtap="gotonav" data-id="3">
           <view class="navicon"><image src="../../img/i3.png"></image></view>
           <view class="navtxt">赢在大户室</view>
       </view>

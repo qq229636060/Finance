@@ -236,6 +236,11 @@ Page({
           url:"../school/index"
         });
         break;
+        case '3':
+        wx.navigateTo({
+          url:"../chatroom/list?chatid=2"
+        });
+        break;
       case '4':
           wx.navigateTo({
             url:"../datalist/index"
