@@ -31,8 +31,18 @@ Page({
     autoplay_not:true,
     interval_not:5000,
     duration_not:500,
-    wzlist:""
+    wzlist:"",
+    setInter:""
   },
+  startSetInter: function(){
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.setInter = setInterval(
+        function () {
+          that.sendToServer(chatType.ping, "");
+        }
+  ,55000);   
+},
   startConnect: function () {
     var _this = this
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
@@ -46,6 +56,7 @@ Page({
     });
     wxstindex.onError(res => {
       console.info('连接识别');
+      clearInterval(this.data.setInter)
       console.error(res);
     });
     wxstindex.onMessage(res => {
@@ -169,11 +180,7 @@ Page({
       return c = Number(a.toString().replace(".", "")), d = Number(b.toString().replace(".", "")), this.floatMul(c / d, Math.pow(10, f - e));
     },
     onHide: function () {
-      if(wxstindex){
-        wxstindex.close(() => {
-          console.info('连接关闭');
-        });
-      }
+     
     },
   
     /**
@@ -181,12 +188,14 @@ Page({
      */
     onUnload: function () {
       // clearTimeout(t)
+      
       console.log(wxstindex)
       if(wxstindex){
         wxstindex.close(() => {
           console.info('连接关闭');
         });
       }
+      clearInterval(this.data.setInter)
      
     },
     onShow: function () {
@@ -194,6 +203,7 @@ Page({
       this.getpagedata()
       this.startConnect()
       this.gettxt()
+      this.startSetInter()
 
     },
   getpagedata:function(){

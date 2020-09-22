@@ -16,7 +16,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-      datalist:""
+      datalist:"",
+      setInter:""
   },
 
   /**
@@ -28,6 +29,15 @@ Page({
       title: '行情'
     })
     
+  },
+  startSetInter: function(){
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.setInter = setInterval(
+        function () {
+          that.sendToServer(chatType.ping, "");
+        }
+    ,55000);   
   },
   startConnect: function () {
     var _this = this
@@ -196,6 +206,7 @@ Page({
    */
   onShow: function () {
     //this.getdata()
+    this.startSetInter()
     this.startConnect()
   },
 
@@ -216,6 +227,7 @@ Page({
     wxst.close(() => {
       console.info('连接关闭');
     });
+    clearInterval(this.data.setInter)
   },
 
   /**

@@ -1,24 +1,38 @@
 // pages/novice/list.js
+const zajax = require('../../utils/comm.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      nav_now:0
+      nav_now:0,
+      type:1,
+      wzlist:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getdata()
+  },
+  getdata:function(){
+    var _this = this;
+    zajax.requestAjax('home/noob/list1?type='+_this.data.type,'','get','正在加载',function(res){
+      if(res.code == 0){
+        _this.setData({
+          wzlist:res.data.list
+        })
+      }
+    })
   },
   nav:function(e){
-      console.log(e)
       this.setData({
-         nav_now:e.currentTarget.dataset.id
+         nav_now:e.currentTarget.dataset.id,
+         type:parseInt(e.currentTarget.dataset.id)+1
       })
+      this.getdata();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

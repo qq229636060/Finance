@@ -8,17 +8,10 @@
         <view class="{{nav_now == 3 ? 'now' : ''}}" catchtap="nav" data-id='3'>常见问题篇<i class="line"></i></view>
       </view>
       <view class="news_list">
-        <view class="newsbox">
+        <view class="newsbox" wx:for="{{wzlist}}" wx:key="*this">
             <view class="n_l">
-                <view>什么是期货交易</view>
-                <view class="time">2020-09-09</view>
-            </view>
-            <view class="n_r"><image src="../../temp_img/live.jpg"></image></view>
-        </view>
-        <view class="newsbox">
-            <view class="n_l">
-                <view>什么是期货交易</view>
-                <view class="time">2020-09-09</view>
+                <view>{{item.title}}</view>
+                <view class="time">{{item.create_time}}</view>
             </view>
             <view class="n_r"><image src="../../temp_img/live.jpg"></image></view>
         </view>
