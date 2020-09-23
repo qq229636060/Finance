@@ -1,4 +1,6 @@
 // 定义表情和图片的对应关系
+const emojisina = require('sinaface.js');
+
 const emojis = {
   '[微笑]': '100',
   '[撇嘴]': '101',
@@ -23,10 +25,22 @@ const emojis = {
 }
 
 // 将表情文字转为图片
-const emojiToPath = (i) => `https://api.qihuozzb.com/static/emoji/${emojis[i]}.gif`
+const emojiToPath = (i) => {
+   console.log(i)
+   console.log(emojisina)
+   var retrundata = [];
+   emojisina.emoji_sina.forEach(function(item,index){
+      if(item.phrase == i){
+        retrundata.push(item.url) 
+      }
+   })
+   return retrundata
+  // `https://api.qihuozzb.com/static/emoji/${emojis[i]}.gif`
+}
 // 将聊天内容转为一个文字和图片混合的列表
 const textToEmoji = (s) => {
   // 定义正则对象
+  console.log(s)
   const r = /\[[^\[\]]+?\]/g;
 
   const a = []; // 定义返回的数组
@@ -59,7 +73,10 @@ const textToEmoji = (s) => {
 
     // 匹配了类似[*]的表情符号
     // 还需要判断是否定义了此表情的图片
-    if (emojis[t[0]]) {
+    console.log(t[0])
+    console.log(emojiToPath(t[0]))
+    if (emojiToPath(t[0])) {
+      console.log("aaa")
       // 定义了表情图片，添加表情类型到数组a
       a.push({
         msgType: 'emoji',
@@ -122,5 +139,6 @@ module.exports = {
   emojis,
   emojiToPath,
   textToEmoji,
+  emojisina
 }
 

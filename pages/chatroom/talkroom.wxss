@@ -43,6 +43,7 @@ page{
   align-content: flex-start;
   position: fixed;
   bottom: 0;
+  overflow-y: auto;
 }
 
 .emoji_wrap {

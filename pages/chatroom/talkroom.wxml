@@ -39,7 +39,7 @@
 </view>
       <view wx:if="{{showEmojis}}" class="emojis_box">
         <view class="emoji_wrap" wx:for="{{emojiList}}" wx:key="key">
-          <image catchtap="clickEmoji" src="{{item.img}}" data-key="{{item.key}}" class="emoji"></image>
+          <image catchtap="clickEmoji" src="{{item.url}}" data-key="{{item.value}}" class="emoji"></image>
         </view>
       </view>
 </view>

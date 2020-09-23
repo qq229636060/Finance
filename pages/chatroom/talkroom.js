@@ -1,7 +1,8 @@
 // pages/chatroom/talkroom.js
 // var chat_id = 1;
 // var uid =1
-const { emojis, emojiToPath, textToEmoji } = require('../../utils/emojis');
+const { emojis, emojiToPath, textToEmoji,emojisina } = require('../../utils/emojis');
+
 const zajax = require('../../utils/comm.js');
 const app = getApp();
 let windowHeight;
@@ -302,9 +303,10 @@ sendToServer: function (type, msg) {
     console.log(textToEmoji(sayData.msg))
     var tmpcont=''
     textToEmoji(sayData.msg).forEach((item,index)=>{
+        console.log(item)
         if(item.msgType == "text"){
           const regex = new RegExp('<img', 'gi');
-          items.msgCont = items.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
+          item.msgCont = item.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
           tmpcont += "<span class='smpic'>"+item.msgCont+"</span>"
         }else if(item.msgType == "emoji"){
           tmpcont += "<img src="+item.msgImage+" class='pp'></img>"
@@ -380,13 +382,18 @@ sendToServer: function (type, msg) {
     windowHeight = sysInfo.windowHeight
     const scrollHeight = `${windowHeight - inputHeight}px`
     //获取表情包
-    const emojiList = Object.keys(emojis).map(key => ({
-      key: key,
-      img: emojiToPath(key)
-    }))
+    console.log(emojisina)
+    
+    
+    // const emojiList = Object.keys(emojis).map(key => ({
+    //   key: key,
+    //   img: emojiToPath(key)
+    // }))
+      console.log(emojisina.emoji_sina)
      this.setData({
        roomid:options.id,
-       emojiList:emojiList
+      //  emojiList:emojiList
+       emojiList:emojisina.emoji_sina
      })
      this.getuserinfo()
     
@@ -403,6 +410,7 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
+
     try {
       var value = wx.getStorageSync('token_data')
       if(value) {
