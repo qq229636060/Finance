@@ -17,6 +17,12 @@ Page({
   onLoad: function (options) {
     this.getdata()
   },
+  gotocont:function(e){
+    var ids = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url:"../oneday_news/index?id="+ids+"&newsmold=1"
+    });
+  },
   getdata:function(){
     var _this = this;
     zajax.requestAjax('home/noob/list1?type='+_this.data.type,'','get','正在加载',function(res){

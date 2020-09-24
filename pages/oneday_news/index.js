@@ -10,13 +10,19 @@ Page({
       title:"",
       conts:"",
       ids:"",
-      time:""
+      time:"",
+      ifnew:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.newsmold == 1){
+      this.setData({
+        ifnew:1
+      })
+    }
     this.setData({
       ids:options.id
     })
@@ -36,7 +42,13 @@ Page({
     var data={
       id:_this.data.ids
     }
-    zajax.requestAjax('/home/article/detail',data,'get','正在加载',function(res){
+    var geturl = ''
+    if(this.data.ifnew == 1){
+      geturl ='/home/noob/detail'
+    }else{
+      geturl ='/home/article/detail'
+    }
+    zajax.requestAjax(geturl,data,'get','正在加载',function(res){
       if(res.code == 0){
          var cont = res.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
          var times =  new Date(res.data.create_time *1000)

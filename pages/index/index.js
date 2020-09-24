@@ -259,7 +259,7 @@ Page({
         break;
       case '4':
           wx.navigateTo({
-            url:"../datalist/index"
+            url:"../oneday_news/jcdata"
           });
           break;
       case '5':

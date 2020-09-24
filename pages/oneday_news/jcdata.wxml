@@ -1,0 +1,6 @@
+<!--pages/oneday_news/jcdata.wxml-->
+<view class="container">
+    <view class="cont_text">
+    <rich-text nodes="{{conts}}" data-data="{{conts}}" bindtap="tap"></rich-text>
+    </view>
+</view>

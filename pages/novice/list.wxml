@@ -8,12 +8,12 @@
         <view class="{{nav_now == 3 ? 'now' : ''}}" catchtap="nav" data-id='3'>常见问题篇<i class="line"></i></view>
       </view>
       <view class="news_list">
-        <view class="newsbox" wx:for="{{wzlist}}" wx:key="*this">
+        <view class="newsbox" wx:for="{{wzlist}}" wx:key="*this" data-id='{{item.id}}' bindtap="gotocont">
             <view class="n_l">
                 <view>{{item.title}}</view>
                 <view class="time">{{item.create_time}}</view>
             </view>
-            <view class="n_r"><image src="../../temp_img/live.jpg"></image></view>
+            <view class="n_r"><image src="{{item.cover}}"></image></view>
         </view>
   </view>
    </view>

@@ -1,34 +1,35 @@
-// pages/novice/index.js
+// pages/oneday_news/jcdata.js
 const zajax = require('../../utils/comm.js');
-const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    wzlist:""
+    conts:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '新手必读'
-    })
-    this.getdata()
-  },
+
   getdata:function(){
     var _this = this;
-    zajax.requestAjax('home/noob/index?type=4','','get','正在加载',function(res){
-      if(res.code == 0){
-        _this.setData({
-          wzlist:res.data.list
-        })
-      }
+    wx.setNavigationBarTitle({
+      title: '基差数据'
+    })
+    zajax.requestAjax('/home/index/basis','','get','正在加载',function(res){
+        if(res.code == 0){
+            _this.setData({
+              conts:res.data.content
+            })
+        }
     })
   },
+  onLoad: function (options) {
+    this.getdata()
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
