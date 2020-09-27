@@ -1,6 +1,6 @@
 <!--pages/chatroom/list.wxml-->
 <view class="container">
-  <view class="roombox" wx:for="{{list}}" wx:key="this" bindtap="gototalk" data-id="{{item.id}}">
+  <view class="roombox" wx:for="{{list}}" wx:key="this" bindtap="gototalk" data-id="{{item.id}}" data-access="{{item.access}}">
     <view class="roombox_t">
       <view class="face">
           <image src="{{item.avatar}}"></image>

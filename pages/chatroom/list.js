@@ -25,10 +25,8 @@ Page({
     this.getlist()
   },
   gototalk:function(e){
-    console.log(e)
-    wx.navigateTo({
-      url:"../chatroom/talkroom?id="+e.currentTarget.dataset.id
-    });
+    this.getuserinfo(e.currentTarget.dataset.access);
+   
   },
   getlist:function(){
     var _this = this;
@@ -49,7 +47,24 @@ Page({
   onReady: function () {
 
   },
-
+  getuserinfo:function(pow){
+    var _this = this;
+    zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
+       if(res.code == 0){
+        if(pow){
+          wx.navigateTo({
+            url:"../chatroom/talkroom?id="+e.currentTarget.dataset.id
+          });
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '您没权限访问,请开通！',
+            showCancel:false
+          })
+        }
+       }
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

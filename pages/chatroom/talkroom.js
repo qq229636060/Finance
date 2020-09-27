@@ -383,7 +383,7 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getuserinfo()
+    
     const sysInfo = wx.getSystemInfoSync()
     windowHeight = sysInfo.windowHeight
     const scrollHeight = `${windowHeight - inputHeight}px`
@@ -437,11 +437,9 @@ sendToServer: function (type, msg) {
    */
   onHide: function () {
     var _this = this
-    if(wxst){
     wxst.close(() => {
       console.info('连接关闭');
-    });
-   }
+      });
     clearInterval(_this.data.setInter)
   },
 
@@ -450,13 +448,11 @@ sendToServer: function (type, msg) {
    */
   onUnload: function () {
     var _this = this
-    if(wxst){
-      wxst.close(() => {
-        console.info('连接关闭');
-      });
-    }
-      clearInterval(_this.data.setInter)
-    },
+    wxst.close(() => {
+      console.info('连接关闭');
+    });
+    clearInterval(_this.data.setInter)
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
