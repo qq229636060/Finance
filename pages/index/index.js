@@ -34,6 +34,11 @@ Page({
     wzlist:"",
     setInter:""
   },
+  gotoall:function(){
+    wx.switchTab({
+      url: '../datalist/index'
+    })
+  },
   startSetInter: function(){
     var that = this;
     //将计时器赋值给setInter
@@ -259,17 +264,17 @@ Page({
         break;
       case '4':
           wx.navigateTo({
-            url:"../oneday_news/jcdata"
+            url:"../oneday_news/jcdata?id=1"
           });
           break;
       case '5':
             wx.navigateTo({
-              url:"../oneday_news/index?nav=5"
+              url:"../oneday_news/jcdata?id=2"
             });
             break;
       case '6':
               wx.navigateTo({
-                url:"../oneday_news/index?nav=6"
+                url:"../oneday_news/jcdata?id=3"
               });
               break;
       case '7':

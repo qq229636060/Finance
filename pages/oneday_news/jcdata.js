@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    conts:""
+    conts:"",
+    id:""
   },
 
   /**
@@ -15,10 +16,11 @@ Page({
 
   getdata:function(){
     var _this = this;
-    wx.setNavigationBarTitle({
-      title: '基差数据'
-    })
-    zajax.requestAjax('/home/index/basis','','get','正在加载',function(res){
+   
+    var data = {
+      basis_type : _this.data.id
+    }
+    zajax.requestAjax('/home/index/basis',data,'get','正在加载',function(res){
         if(res.code == 0){
             _this.setData({
               conts:res.data.content
@@ -27,6 +29,20 @@ Page({
     })
   },
   onLoad: function (options) {
+    var titletxt = ''
+    if(options.id == 1){
+      titletxt = '基差数据'
+    }else if(options.id == 2){
+      titletxt = '每日一策'
+    }else if(options.id == 3){
+      titletxt = '独家报告'
+    }
+    this.setData({
+      id:options.id
+    })
+    wx.setNavigationBarTitle({
+      title: titletxt
+    })
     this.getdata()
   },
 

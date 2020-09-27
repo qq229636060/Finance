@@ -15,7 +15,7 @@
 <view class="topbox">
    <view class="top_text">
       <view><i></i>行情</view>
-      <view>全部品种</view>
+      <view bindtap="gotoall">全部品种</view>
    </view>
 </view>
  <swiper current="{{current}}" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="h200" indicator-active-color="#e1503c" indicator-color="#d1d1d1">
