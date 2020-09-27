@@ -86,7 +86,7 @@
   <view class="topbox">
    <view class="top_text">
       <view><i class="zxicon"></i>热点资讯</view>
-      <view>更多</view>
+      <!-- <view>更多</view> -->
    </view>
   </view>
   <view class="news_list">

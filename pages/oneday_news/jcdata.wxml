@@ -1,6 +1,10 @@
 <!--pages/oneday_news/jcdata.wxml-->
 <view class="container">
-    <view class="cont_text">
+    <view class="{{typeid == 1 ? 'contbox pd0':'contbox'}}">
+    <view class="news_title" wx:if="{{title != null}}">{{title}}</view>
+    <view class="fbtime">{{dateFr.getDate(time)}}</view>
+    <view class="{{typeid == 1 ? 'cont_text mt0':'cont_text'}}">
     <rich-text nodes="{{conts}}" data-data="{{conts}}" bindtap="tap"></rich-text>
+    </view>
     </view>
 </view>

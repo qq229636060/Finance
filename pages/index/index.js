@@ -283,9 +283,9 @@ Page({
                 });
                 break;
       case '8':
-                wx.navigateTo({
-                    url:"../Economic/index"
-                });
+                // wx.navigateTo({
+                //     url:"../Economic/index"
+                // });
                   break;
      case '9':
                 wx.navigateTo({

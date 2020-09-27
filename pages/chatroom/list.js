@@ -16,11 +16,17 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    var titletxt;
+    if(options.chatid == 1){
+       titletxt = '磐石服务'
+    }else if(options.chatid == 2){
+       titletxt = '赢在大户室'
+    }
     this.setData({
       chatid:options.chatid
     })
     wx.setNavigationBarTitle({
-      title:"磐石服务"
+      title:titletxt
     })
     this.getlist()
   },

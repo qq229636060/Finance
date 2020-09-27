@@ -7,7 +7,8 @@ Page({
    */
   data: {
     conts:"",
-    id:""
+    id:"",
+    typeid:""
   },
 
   /**
@@ -23,6 +24,9 @@ Page({
     zajax.requestAjax('/home/index/basis',data,'get','正在加载',function(res){
         if(res.code == 0){
             _this.setData({
+              title:res.data.title,
+              typeid:res.data.basis_type,
+              time:res.data.create_time *1000,
               conts:res.data.content
             })
         }
