@@ -1,0 +1,3 @@
+/* pages/oneday_news/list.wxss */
+.timeline{ border-left:solid 1rpx #d22a21 ; min-height: 100rpx; width: 600rpx; margin:20rpx auto}
+.timebox{ position: relative;}

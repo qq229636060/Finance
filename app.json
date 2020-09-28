@@ -8,6 +8,7 @@
     "pages/datalist/index",
     "pages/oneday_news/index",
     "pages/oneday_news/jcdata",
+    "pages/oneday_news/list",
     "pages/Economic/index",
     "pages/novice/list",
     "pages/chatroom/list",

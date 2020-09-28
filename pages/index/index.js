@@ -274,7 +274,7 @@ Page({
             break;
       case '6':
               wx.navigateTo({
-                url:"../oneday_news/jcdata?id=3"
+                url:"../oneday_news/list"
               });
               break;
       case '7':

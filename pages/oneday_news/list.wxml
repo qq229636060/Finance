@@ -1,0 +1,6 @@
+<!--pages/oneday_news/list.wxml-->
+<view class="container">
+    <view class="timeline" wx:for="{{list}}" wx:key="*this">
+       {{item.content}}
+    </view>
+</view>
