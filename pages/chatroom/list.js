@@ -31,7 +31,8 @@ Page({
     this.getlist()
   },
   gototalk:function(e){
-    this.getuserinfo(e.currentTarget.dataset.access);
+    console.log(e)
+    this.getuserinfo(e.currentTarget.dataset.access,e.currentTarget.dataset.id);
    
   },
   getlist:function(){
@@ -53,13 +54,13 @@ Page({
   onReady: function () {
 
   },
-  getuserinfo:function(pow){
+  getuserinfo:function(pow,powid){
     var _this = this;
     zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
        if(res.code == 0){
         if(pow){
           wx.navigateTo({
-            url:"../chatroom/talkroom?id="+e.currentTarget.dataset.id
+            url:"../chatroom/talkroom?id="+powid
           });
         }else{
           wx.showModal({
