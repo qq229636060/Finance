@@ -8,6 +8,7 @@ var wxst
 var chatType = {
   login: 2,//登录
   ping: "ping",
+  roleid:"",
   listtype:13//获取数据
 };
 Page({
@@ -94,7 +95,7 @@ Page({
       msg: msg,
       chat_id: chat_id,
       token: 1,
-      role: 1,
+      role: this.data.roleid,
     };
     if (wxst.readyState == wxst.OPEN) {
       wxst.send({
@@ -107,6 +108,18 @@ Page({
       } else {
         console.error('连接已经关闭');
       }
+    },
+    getuserinfo:function(){
+      var _this = this;
+      zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
+        if(res.code == 0){
+          console.log(res.data.avatar)
+          _this.setData({
+            roleid:res.data.role,
+          })
+          _this.startConnect()
+        }
+      })
     },
   // getdata:function(){
   //   var _this = this
@@ -208,6 +221,7 @@ Page({
     //this.getdata()
     this.startSetInter()
     this.startConnect()
+    this.getuserinfo()
   },
 
   /**

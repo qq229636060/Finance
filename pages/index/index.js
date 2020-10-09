@@ -33,7 +33,8 @@ Page({
     duration_not:500,
     wzlist:"",
     setInter:"",
-    bannerdata:""
+    bannerdata:"",
+    roleid:""
   },
   gotoall:function(){
     wx.switchTab({
@@ -112,7 +113,7 @@ Page({
       msg: msg,
       chat_id: chat_id,
       token: 1,
-      role: 1,
+      role: this.data.roleid,
     };
     if (wxstindex.readyState == wxstindex.OPEN) {
       wxstindex.send({
@@ -216,6 +217,7 @@ Page({
       this.startConnect()
       this.gettxt()
       this.startSetInter()
+      this.getuserinfo()
 
     },
   getpagedata:function(){
@@ -310,6 +312,18 @@ Page({
     setTimeout(() => {
       this.reset();
     }, 3000);
+  },
+  getuserinfo:function(){
+    var _this = this;
+    zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
+      if(res.code == 0){
+        console.log(res.data.avatar)
+        _this.setData({
+          roleid:res.data.role,
+        })
+        _this.startConnect()
+      }
+    })
   },
   onLoad: function () {
 
