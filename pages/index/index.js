@@ -113,7 +113,7 @@ Page({
       msg: msg,
       chat_id: chat_id,
       token: 1,
-      role: this.data.roleid,
+      role: -1,
     };
     if (wxstindex.readyState == wxstindex.OPEN) {
       wxstindex.send({
@@ -217,7 +217,7 @@ Page({
       this.startConnect()
       this.gettxt()
       this.startSetInter()
-      this.getuserinfo()
+      //this.getuserinfo()
 
     },
   getpagedata:function(){

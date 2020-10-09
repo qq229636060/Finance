@@ -95,7 +95,7 @@ Page({
       msg: msg,
       chat_id: chat_id,
       token: 1,
-      role: this.data.roleid,
+      role: -1,
     };
     if (wxst.readyState == wxst.OPEN) {
       wxst.send({
@@ -221,7 +221,7 @@ Page({
     //this.getdata()
     this.startSetInter()
     this.startConnect()
-    this.getuserinfo()
+    //this.getuserinfo()
   },
 
   /**
