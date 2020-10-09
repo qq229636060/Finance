@@ -1,6 +1,6 @@
 <!--pages/oneday_news/list.wxml-->
-<view class="container">
-    <view class="timeline" wx:for="{{list}}" wx:key="*this">
-       {{item.content}}
+<view class="container mt30">
+    <view class="timeline" wx:for="{{list}}" wx:key="*this" bindtap="gotocont" data-id="{{item.id}}">
+      <i class="lineicon"></i>{{item.create_time}} 【{{item.title}}】
     </view>
 </view>

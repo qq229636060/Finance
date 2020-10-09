@@ -32,7 +32,8 @@ Page({
     interval_not:5000,
     duration_not:500,
     wzlist:"",
-    setInter:""
+    setInter:"",
+    bannerdata:""
   },
   gotoall:function(){
     wx.switchTab({
@@ -223,7 +224,8 @@ Page({
       if(res.code == 0){
          console.log(res.data.notice)
          _this.setData({
-           notice:res.data.notice
+           notice:res.data.notice,
+           bannerdata:res.data.banner
          })
       }
     })

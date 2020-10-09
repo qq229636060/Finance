@@ -5,6 +5,7 @@ const { emojis, emojiToPath, textToEmoji,emojisina } = require('../../utils/emoj
 
 const zajax = require('../../utils/comm.js');
 const app = getApp();
+
 let windowHeight;
 const inputHeight = 51;
 const emojiHeight = 171;
@@ -52,12 +53,8 @@ Page({
     emojibox_h:'',
     footall_h:"",
     loctoken:"",
-    roleid:""
-  },
-  getuserinfo:function(){
-    var _this = this;
-    zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
-    })
+    roleid:"",
+    selfface:""
   },
   startSetInter: function(){
       var that = this;
@@ -95,7 +92,6 @@ Page({
     //选择id
     var that = this;
     query.select('.emojis_box').boundingClientRect(function (rect) {
-      console.log(rect.height + 100)
       that.setData({
         emojibox_h: rect.height + 'px',
         footall_h: rect.height + 30 + 'px'
@@ -158,7 +154,6 @@ Page({
         showtalk:0
       })
      }
-     console.log(wxst)
      wxst.close(() => {
       console.info('连接关闭');
       });
@@ -247,7 +242,6 @@ Page({
                 item.msg = tmpconts
               })
             }
-            console.log(data)
             this.setData({
               talklist:data
             })
@@ -294,6 +288,7 @@ sendToServer: function (type, msg) {
     }
     var time = this.gettime();
     this.sendToServer(chatType.say_in_room, this.data.sendcont);
+    console.log(this.data.selfface)
     var sayData = {
       chat_id: this.data.roomid,
       role: this.data.roleid,
@@ -301,14 +296,12 @@ sendToServer: function (type, msg) {
       msg: this.data.sendcont,
       time: time,
       from_id: this.data.myuid,
-      from_user:{avatar:app.globalData.userInfo.avatarUrl},
+      from_user:{avatar:this.data.selfface},
       uid:this.data.myuid,
       client:1
     }
-    console.log(textToEmoji(sayData.msg))
     var tmpcont=''
     textToEmoji(sayData.msg).forEach((item,index)=>{
-        console.log(item)
         if(item.msgType == "text"){
           const regex = new RegExp('<img', 'gi');
           item.msgCont = item.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
@@ -366,9 +359,11 @@ sendToServer: function (type, msg) {
     var _this = this;
     zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
       if(res.code == 0){
+        console.log(res.data.avatar)
         _this.setData({
           myuid:res.data.id,
-          roleid:res.data.role
+          roleid:res.data.role,
+          selfface:res.data.avatar
         })
         _this.startConnect()
       }
@@ -388,14 +383,13 @@ sendToServer: function (type, msg) {
     windowHeight = sysInfo.windowHeight
     const scrollHeight = `${windowHeight - inputHeight}px`
     //获取表情包
-    console.log(emojisina)
+  
     
     
     // const emojiList = Object.keys(emojis).map(key => ({
     //   key: key,
     //   img: emojiToPath(key)
     // }))
-      console.log(emojisina.emoji_sina)
      this.setData({
        roomid:options.id,
       //  emojiList:emojiList
@@ -416,7 +410,6 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
-   
     try {
       var value = wx.getStorageSync('token_data')
       if(value) {

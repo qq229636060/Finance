@@ -1,3 +1,5 @@
 /* pages/oneday_news/list.wxss */
-.timeline{ border-left:solid 1rpx #d22a21 ; min-height: 100rpx; width: 600rpx; margin:20rpx auto}
+.timeline{ border-left:solid 1rpx #d22a21 ; min-height: 100rpx; width: 600rpx; margin:0 auto; padding-left: 30rpx; position: relative;}
 .timebox{ position: relative;}
+.lineicon{ width: 20rpx; height: 20rpx; background: #d22a21; border:solid 2rpx #fff; border-radius: 50%; position: absolute; left: -12rpx; top:10rpx}
+.mt30{ margin-top: 30rpx;}

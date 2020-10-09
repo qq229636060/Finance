@@ -76,10 +76,10 @@
           <view class="navtxt">加入我们</view>
       </view>
   </view>
-  <swiper indicator-dots="{{indicatorDots_pic}}" autoplay="{{autoplay_pic}}" interval="{{interval_pic}}" duration="{{duration_pic}}" class="jdpic" indicator-active-color="#e1503c" indicator-color="#d1d1d1">
-        <block wx:key="*this">
+  <swiper indicator-dots="{{indicatorDots_pic}}" autoplay="{{autoplay_pic}}" interval="{{interval_pic}}" duration="{{duration_pic}}" class="jdpic" indicator-active-color="#e1503c" indicator-color="#d1d1d1" wx:if="{{bannerdata.length != 0}}">
+        <block wx:key="*this" wx:for='{{bannerdata}}'>
           <swiper-item>
-              <image src="../../temp_img/live.jpg"></image>
+              <image src="{{item.pic}}"></image>
           </swiper-item>
         </block>
   </swiper>

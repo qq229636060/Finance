@@ -25,7 +25,12 @@ Page({
   onLoad: function (options) {
       this.getdata()
   },
-
+  gotocont:function(e){
+    var ids = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url:"../oneday_news/index?id="+ids
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
