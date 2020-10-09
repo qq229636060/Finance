@@ -328,6 +328,7 @@ sendToServer: function (type, msg) {
   },
   sayContent:function(data){
     if (!data) return;
+        console.log(this.data.talklist)
         var tmparr = this.data.talklist;
         if(data){
           tmparr.msg.push(data);
