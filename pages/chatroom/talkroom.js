@@ -197,6 +197,19 @@ Page({
             }
             break;
         case chatType.teach_talk:
+          data.msg.forEach((item,index)=>{
+            var tmpconts = ''
+            textToEmoji(item.msg).forEach((items,index)=>{
+              if(items.msgType == "text"){
+                const regex = new RegExp('<img', 'gi');
+                items.msgCont = items.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
+                tmpconts += "<span class='smpic'>"+items.msgCont+"</span>"
+              }else if(items.msgType == "emoji"){
+                tmpconts += "<img src="+items.msgImage+" class='pp'></img>"
+              }
+            }) 
+            item.msg = tmpconts
+          })
           this.setData({
             talklist:data
           })
@@ -328,8 +341,14 @@ sendToServer: function (type, msg) {
   },
   sayContent:function(data){
     if (!data) return;
-        console.log(this.data.talklist)
-        var tmparr = this.data.talklist;
+        console.log(data)
+        var tmparr
+        if(this.data.talklist == ''){
+          tmparr = {}
+          tmparr.msg =[]
+        }else{
+          tmparr = this.data.talklist
+        }
         if(data){
           tmparr.msg.push(data);
           this.setData({

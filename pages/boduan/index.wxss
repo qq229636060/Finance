@@ -4,11 +4,12 @@
 .celv image{ width: 620rpx; height: 250rpx; }
 .cbox{ width: 620rpx; height: 250rpx; position: absolute; top: 0; left: 0;display: flex; align-items: center;}
 .cbox .c_l{ font-size: 44rpx; color: #e1503c; width:200rpx; text-align: center;}
-.cbox .c_r{ font-size: 28rpx; color: #fff; padding-right: 20rpx;}
+.cbox .c_r{ font-size: 28rpx; color: #fff; padding-right: 20rpx;max-width: 400rpx;}
 .mt30{ margin-top: 30rpx;}
 .pd40{ padding:40rpx}
 .cont_text{font-size: 30rpx; line-height: 56rpx; color: #646464; margin-top: 20rpx;}
 .upicon{ width: 188rpx; height:78rpx; margin:20rpx auto}
 .upicon image{width: 188rpx; height: 78rpx;}
 .timebox{text-align: center; margin-bottom: 20rpx;}
-.times{ font-size: 26rpx;}
+.times{ font-size: 26rpx; color: #cc0000;}
+.times_cont{ text-align: left;}

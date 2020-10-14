@@ -59,3 +59,4 @@
   .h45{ height: 45rpx; margin-left: 20rpx; line-height: 45rpx; overflow: hidden;}
   .w1000{ width: 1000rpx;}
   .f23{font-size: 23rpx;}
+  .f25{font-size: 25rpx;}

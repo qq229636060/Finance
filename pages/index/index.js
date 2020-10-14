@@ -34,7 +34,8 @@ Page({
     wzlist:"",
     setInter:"",
     bannerdata:"",
-    roleid:""
+    roleid:"",
+    index:""
   },
   gotoall:function(){
     wx.switchTab({
@@ -227,7 +228,8 @@ Page({
          console.log(res.data.notice)
          _this.setData({
            notice:res.data.notice,
-           bannerdata:res.data.banner
+           bannerdata:res.data.banner,
+           index:res.data.index
          })
       }
     })
@@ -272,20 +274,38 @@ Page({
           });
           break;
       case '5':
+            
             wx.navigateTo({
               url:"../oneday_news/jcdata?id=2"
             });
             break;
       case '6':
-              wx.navigateTo({
-                url:"../oneday_news/list"
-              });
+              if(this.data.index.indexOf(1) == -1){
+                wx.showModal({
+                  title: '提示',
+                  content: '您没权限访问,请开通！',
+                  showCancel:false
+                })
+              }else{
+                wx.navigateTo({
+                  url:"../oneday_news/list"
+                });
+              }
+             
               break;
       case '7':
-                wx.navigateTo({
-                  url:"../boduan/index"
-                });
-                break;
+        if(this.data.index.indexOf(2) == -1){
+          wx.showModal({
+            title: '提示',
+            content: '您没权限访问,请开通！',
+            showCancel:false
+          })
+        }else{
+          wx.navigateTo({
+            url:"../boduan/index"
+          });
+        }
+        break;
       case '8':
                 // wx.navigateTo({
                 //     url:"../Economic/index"
