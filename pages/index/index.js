@@ -37,6 +37,12 @@ Page({
     roleid:"",
     index:""
   },
+  gotoh5:function(e){
+    var url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url:"../oneday_news/h5?url="+url
+    });
+  },
   gotoall:function(){
     wx.switchTab({
       url: '../datalist/index'
