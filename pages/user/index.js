@@ -82,7 +82,7 @@ Page({
     console.log(res)
     app.globalData.userInfo = res.detail.userInfo;
     app.globalData.usedata = res.detail;
-    console.log(app.globalData.userInfo)
+    console.log(app.globalData)
     if (app.globalData.userInfo) {
       wx.login({
         success: res => {

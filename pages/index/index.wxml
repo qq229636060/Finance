@@ -6,7 +6,7 @@
       <swiper autoplay="{{autoplay_not}}" interval="{{interval_not}}" duration="{{duration_not}}" class="h45" vertical="true">
         <block wx:for="{{notice}}" wx:key="*this">
           <swiper-item>
-            <view class="f25" bindtap="gotoh5" data-url='https://mp.weixin.qq.com/s/5Fj3l2o0W5jEqqm-l1H2WQ'>{{item.content}}</view>
+            <view class="f25" bindtap="gotoh5" data-url='{{item.url}}'>{{item.content}}</view>
           </swiper-item>
         </block>
       </swiper>
