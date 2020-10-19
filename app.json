@@ -17,6 +17,7 @@
     "pages/chatroom/talkroom",
     "pages/user/index",
     "pages/user/userinfo",
+    "pages/user/loginpg",
     "pages/user/joinus",
     "pages/user/moblie"
   ],

@@ -1,0 +1,8 @@
+<!--pages/user/loginpg.wxml-->
+<view class="container">
+    <image src="../../img/globlogin.png" class="w100"></image>
+    <view class="bbtn">
+    <button open-type="getUserInfo" class="nonebtn" bindgetuserinfo='btn_sub' class="usename">点击登录</button>
+    <!-- <view class="nobtn" bindtap="gobacks">暂不登录</view> -->
+    </view>
+</view>

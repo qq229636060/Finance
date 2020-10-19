@@ -1,4 +1,4 @@
-// pages/user/index.js
+// pages/user/loginpg.js
 const zajax = require('../../utils/comm.js');
 const app = getApp()
 Page({
@@ -7,15 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo_data:"",
-    islogin:false
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     this.getdata()
+
   },
 
   /**
@@ -66,15 +65,9 @@ Page({
   onShareAppMessage: function () {
 
   },
-  getdata(){
-    var _this = this;
-    zajax.requestAjax('/home/user/userinfo','','get','正在加载',function(res){
-      if(res.code == 0){
-         _this.setData({
-            userinfo_data:res.data,
-            islogin:true
-         })
-      }
+  gobacks:function(){
+    wx.navigateBack({
+      delta: 1
     })
   },
   btn_sub:function(res){
@@ -106,7 +99,9 @@ Page({
                     key:"token_data",
                     data:res.data.token,
                     success(res){
-                      _this.getdata()
+                      wx.navigateBack({
+                        delta: 1
+                      })
                     }
                   })
                    

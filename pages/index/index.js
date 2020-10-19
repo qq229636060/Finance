@@ -131,6 +131,10 @@ Page({
         }
        });
       } else {
+        wxstindex.close(() => {
+          console.info('连接关闭');
+        });
+        clearInterval(this.data.setInter)
         console.error('连接已经关闭');
       }
     },
@@ -224,7 +228,7 @@ Page({
       this.startConnect()
       this.gettxt()
       this.startSetInter()
-      //this.getuserinfo()
+      this.getuserinfo()
 
     },
   getpagedata:function(){

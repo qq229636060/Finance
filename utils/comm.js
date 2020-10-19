@@ -62,15 +62,15 @@ const requestAjax = function (url, postData, types,message, success, fail) {
         var currentPage = pages[pages.length-1] //获取当前页面的对象
         var url = currentPage.route
         console.log(url)
-        if(url !='pages/user/index'){
+        if(url !='pages/user/loginpg'){
           wx.showModal({
             title: '提示',
             content: '你还未授权',
             showCancel:false,
             success (res) {
               if (res.confirm) {
-                wx.switchTab({
-                  url: '../user/index'
+                wx.navigateTo({
+                  url: '../user/loginpg'
                 })
               }
             }

@@ -1,0 +1,5 @@
+/* pages/user/loginpg.wxss */
+.w100{ width: 100%; min-height: 1334rpx;}
+.usename{ width: 600rpx!important; height: 95rpx; background: #e43731; color: #fff; text-align: center; line-height: 95rpx;padding: 0;}
+.bbtn{ width: 600rpx !important; position: absolute; bottom:  300rpx; left:50%; margin-left: -300rpx;}
+.nobtn{width: 600rpx!important; height: 95rpx; background: #fff; color: #979797; text-align: center; line-height: 95rpx;padding: 0; border:solid 1rpx #595d66; border-radius: 10rpx; margin-top: 20rpx;}
