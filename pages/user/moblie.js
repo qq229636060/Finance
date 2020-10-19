@@ -28,7 +28,7 @@ Page({
               data:res.data.token,
               success(res){
                 wx.navigateBack({
-                  delta: 1,
+                  delta:2,
                   success: function (e) {
                       var page = getCurrentPages().pop();
                       if (page == undefined || page == null) return;
