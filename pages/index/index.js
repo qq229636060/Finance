@@ -276,13 +276,13 @@ Page({
         break;
       case '4':
           wx.navigateTo({
-            url:"../oneday_news/jcdata?id=1"
+            url:"../oneday_news/otherlist?id=7"
           });
           break;
       case '5':
             
             wx.navigateTo({
-              url:"../oneday_news/jcdata?id=2"
+              url:"../oneday_news/otherlist?id=3"
             });
             break;
       case '6':
@@ -294,7 +294,8 @@ Page({
                 })
               }else{
                 wx.navigateTo({
-                  url:"../oneday_news/list"
+                  // url:"../oneday_news/list"
+                  url:"../oneday_news/otherlist?id=6"
                 });
               }
              

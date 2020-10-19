@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="otherlist">
+      <view class="{{idx == 0 ? 'otherbox otherone':'otherbox'}}"  wx:for="{{listdata}}" wx:for-index="idx" wx:key="this" data-id="{{item.id}}" bindtap="gotocont">
+         <view class="textz">
+            <view>{{item.title}} ｜ {{item.create_time}}</view>
+         </view>
+         <image src='{{item.cover}}'></image>
+      </view>
+  </view>
+</view>

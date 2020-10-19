@@ -11,5 +11,5 @@
 .upicon{ width: 188rpx; height:78rpx; margin:20rpx auto}
 .upicon image{width: 188rpx; height: 78rpx;}
 .timebox{text-align: center; margin-bottom: 20rpx;}
-.times{ font-size: 26rpx; color: #cc0000;}
-.times_cont{ text-align: left;}
+.times{ font-size: 26rpx; color: #cc0000; text-align: left;}
+.times_cont{ text-align: left; font-size: 32rpx;}

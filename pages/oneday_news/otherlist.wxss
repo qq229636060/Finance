@@ -1,0 +1,8 @@
+/* pages/oneday_news/otherlist.wxss */
+
+.otherbox{ display: flex; padding: 30rpx; justify-content: space-between; align-items: center; border-bottom: solid 1rpx #dcdcdc;}
+.textz{ width: 450rpx; font-size: 28rpx;}
+.otherbox image{ width: 205rpx; height:140rpx ; border-radius: 10rpx;}
+.otherone{ width: 100%; height: 340rpx; overflow: hidden; padding: 0;}
+.otherone image{ width: 100%; height: 100%; border-radius: 0;}
+.otherone .textz{ display: none;}

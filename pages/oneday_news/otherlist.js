@@ -1,52 +1,59 @@
-// pages/oneday_news/jcdata.js
+// pages/oneday_news/otherlist.js
 const zajax = require('../../utils/comm.js');
 Page({
 
   /**
    * 页面的初始数据
    */
+
   data: {
-    conts:"",
-    id:"",
-    typeid:""
+      listdata:"",
+      id:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-
   getdata:function(){
-    var _this = this;
-   
-    var data = {
-      id: _this.data.id
-    }
-    // zajax.requestAjax('/home/index/basis',data,'get','正在加载',function(res){
-    //     if(res.code == 0){
-    //         _this.setData({
-    //           title:res.data.title,
-    //           typeid:res.data.basis_type,
-    //           time:res.data.create_time *1000,
-    //           conts:res.data.content
-    //         })
-    //     }
-    // })
-    zajax.requestAjax('/home/article/detail',data,'get','正在加载',function(res){
-      if(res.code == 0){
-          _this.setData({
-            title:res.data.title,
-            typeid:res.data.basis_type,
-            time:res.data.create_time *1000,
-            conts:res.data.content
-          })
-      }
-   })
+    var _this = this
+    zajax.requestAjax('/home/article/list1?type='+_this.data.id,'','get','正在加载',function(res){
+        if(res.code == 0){
+           _this.setData({
+              listdata: res.data.list
+           })
+        }
+    })
   },
-  onLoad: function (options) { 
+  gotocont:function(e){
+    var ids = e.currentTarget.dataset.id
+    if(this.data.id == 7){
+      wx.navigateTo({
+        url:"../oneday_news/jcdata?id="+ids
+      });
+    }else{
+      wx.navigateTo({
+        url:"../oneday_news/index?id="+ids
+      });
+    }
+   
+  },
+  onLoad: function (options) {
     this.setData({
       id:options.id
     })
+    var text = '';
     
+    if(options.id == '7'){
+      console.log("hahah ")
+      text = '基差数据'
+    }else if(options.id == 3){
+      text = '每日一策'
+    }else if(options.id == 6){
+      text = '独家报告'
+    }
+    wx.setNavigationBarTitle({
+      title: text
+    })
     this.getdata()
   },
 
