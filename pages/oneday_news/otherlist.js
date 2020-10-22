@@ -25,17 +25,19 @@ Page({
     })
   },
   gotocont:function(e){
+    var idx = e.currentTarget.dataset.index
     var ids = e.currentTarget.dataset.id
-    if(this.data.id == 7){
-      wx.navigateTo({
-        url:"../oneday_news/jcdata?id="+ids
-      });
-    }else{
-      wx.navigateTo({
-        url:"../oneday_news/index?id="+ids
-      });
+    if (idx != 0){
+      if(this.data.id == 7){
+        wx.navigateTo({
+          url:"../oneday_news/jcdata?id="+ids
+        });
+      }else{
+        wx.navigateTo({
+          url:"../oneday_news/index?id="+ids
+        });
+      }
     }
-   
   },
   onLoad: function (options) {
     this.setData({
