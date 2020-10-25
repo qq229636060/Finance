@@ -8,7 +8,7 @@
             </view>
             <view class="talkbox_r">
                 <view class="usename">{{item.from_user.nick}}</view>
-                <view class="talkcont"><rich-text nodes="{{item.msg}}" data-data="{{item.msg}}"></rich-text></view>
+                <view class="talkcont"><rich-text nodes="{{item.msg}}"></rich-text></view>
             </view>
      </view>
      <!-- <view class="talkbox myself">

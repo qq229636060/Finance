@@ -205,7 +205,7 @@ Page({
                 items.msgCont = items.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
                 tmpconts += "<span class='smpic'>"+items.msgCont+"</span>"
               }else if(items.msgType == "emoji"){
-                tmpconts += "<img src="+items.msgImage+" class='pp'></img>"
+                tmpconts += "<img src="+items.msgImage+" class='pp' style='width:45rpx'></img>"
               }
             }) 
             item.msg = tmpconts
@@ -246,8 +246,12 @@ Page({
                 textToEmoji(item.msg).forEach((items,index)=>{
                   if(items.msgType == "text"){
                     const regex = new RegExp('<img', 'gi');
+                  if(items.msgCont.indexOf("sina-emotion") == -1){
                     items.msgCont = items.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
-                    tmpconts += "<span class='smpic'>"+items.msgCont+"</span>"
+                  }else{
+                     //items.msgCont = items.msgCont.replace(regex, `<img style='width:25rpx'`);
+                  }
+                    tmpconts += items.msgCont
                   }else if(items.msgType == "emoji"){
                     tmpconts += "<img src="+items.msgImage+" class='pp'></img>"
                   }
@@ -314,13 +318,18 @@ sendToServer: function (type, msg) {
       client:1
     }
     var tmpcont=''
+    console.log(sayData.msg)
     textToEmoji(sayData.msg).forEach((item,index)=>{
         if(item.msgType == "text"){
           const regex = new RegExp('<img', 'gi');
-          item.msgCont = item.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
+          if(items.msgCont.indexOf("sina-emotion") == -1){
+            item.msgCont = item.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
+          }else{
+            items.msgCont = items.msgCont.replace(regex, `<img class='pp'`);
+          }
           tmpcont += "<span class='smpic'>"+item.msgCont+"</span>"
         }else if(item.msgType == "emoji"){
-          tmpcont += "<img src="+item.msgImage+" class='pp'></img>"
+          tmpcont += "<img src="+item.msgImage+" class='pp' style='width:45rpx'></img>"
         }
     })
     sayData.msg = tmpcont

@@ -39,8 +39,8 @@ const emojiToPath = (i) => {
 // 将聊天内容转为一个文字和图片混合的列表
 const textToEmoji = (s) => {
   // 定义正则对象
+  console.log(s)
   const r = /\[[^\[\]]+?\]/g;
-
   const a = []; // 定义返回的数组
   let t = null; // 是否匹配到表情符号
   let i = 0; // 下次匹配的序号
@@ -72,7 +72,6 @@ const textToEmoji = (s) => {
     // 匹配了类似[*]的表情符号
     // 还需要判断是否定义了此表情的图片
     if (emojiToPath(t[0])) {
-      console.log("aaa")
       // 定义了表情图片，添加表情类型到数组a
       a.push({
         msgType: 'emoji',
