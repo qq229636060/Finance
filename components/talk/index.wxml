@@ -8,7 +8,7 @@
             </view>
             <view class="talkbox_r">
                 <view class="usename">{{item.from_user.nick}}</view>
-                <view class="talkcont"><rich-text nodes="{{item.msg}}"></rich-text></view>
+                <view class="{{item.role == 1 ?'talkcont f28':'talkcont' }}" data-role="{{item.role}}"><rich-text nodes="{{item.msg}}"></rich-text></view>
             </view>
      </view>
      <!-- <view class="talkbox myself">

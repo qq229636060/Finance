@@ -13,5 +13,6 @@
 .myself .usename{display: none;}
 .talkbox_r .talkcont{ color: #282828; font-size: 26rpx; background: #fff; padding: 10rpx 20rpx; border-radius: 10rpx; margin-top:10rpx ;}
 .pp,.sina-emotion{ width: 45rpx !important;}
+.f28{font-size: 30rpx !important;}
 
 
