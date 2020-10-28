@@ -14,8 +14,10 @@
        <view class="teachbox_t">
           <view class="teachface"><image src="{{item.teacher.avatar}}"></image></view>
           <view class="teachtxt">
-              <view>{{item.stock}}</view>
               <view>{{dateFr.getDate(item.create_time*1000)}}</view>
+              <view>{{item.stock}}</view>
+              <view wx:if="{{item.updown == 0}}">方向：多</view>
+              <view wx:else>方向：空</view>
               <view>区间：{{item.range}}</view>
               <view>止损：{{item.stop}}</view>
               <view>理由：{{item.reason}}</view>

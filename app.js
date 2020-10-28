@@ -28,6 +28,13 @@ App({
             }
           })
         }
+      },
+      fail: res =>{
+        wx.showToast({
+          title: '获取用户信息失败',
+          duration: 2000
+        })
+        
       }
     })
   },
