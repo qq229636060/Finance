@@ -4,7 +4,7 @@
     <view class="line26"></view>
     <view class="titles"><i></i>基础课程</view>
     <view class="school_list">
-    <view class="schoolbox" bindtap="goto_vcont" wx:for="{{list}}" wx:key="this" data-id="{{item.id}}">
+    <view class="schoolbox" bindtap="goto_vcont" wx:for="{{list}}" wx:key="this" data-id="{{item.id}}" >
         <view class="s_l"><image src="{{item.cover}}"></image></view>
         <view class="s_r">
             <view class="s_title">{{item.title}}</view>
@@ -22,7 +22,7 @@
         <view class="line26"></view>
     <view class="titles"><i></i>图文基础课程</view>
     <view class="school_list">
-    <view class="schoolbox" bindtap="goto_tcont" wx:for="{{list}}" wx:key="this" data-id="{{item.id}}">
+    <view class="schoolbox" bindtap="goto_tcont" wx:for="{{list}}" wx:key="this" data-id="{{item.id}}" data-img="{{item.cover}}">
         <view class="s_l"><image src="{{item.cover}}"></image></view>
         <view class="s_r">
             <view class="s_title">{{item.title}}</view>

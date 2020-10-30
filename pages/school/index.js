@@ -19,7 +19,7 @@ Page({
   },
   goto_tcont:function(e){
     wx.navigateTo({
-      url:"tcont?id="+e.currentTarget.dataset.id
+      url:"tcont?id="+e.currentTarget.dataset.id+"&img="+e.currentTarget.dataset.img
     });
   },
   onChange:function(e){

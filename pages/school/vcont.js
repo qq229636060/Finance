@@ -17,7 +17,7 @@ Page({
    */
   onLoad: function (options) {
       this.setData({
-        cont_id:options.id
+        cont_id:options.id,
       })
       this.getcont_list();
   },

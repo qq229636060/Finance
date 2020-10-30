@@ -1,7 +1,7 @@
 <!--pages/school/tcont.wxml-->
 <view class="container">
   <view class="tpic">
-      <image src="https://obj.pipi.cn/friday/34c59d5cfc8d706902cbc00e686953d0.jpg"></image>
+      <image src="{{fm_img}}"></image>
       <view class="fixb">
           <view class="fixb_l">本课程共{{number}}节</view>
           <!-- <view class="fixb_r"> <view><text>10万+</text><i class="icon1"></i></view><view><text>5678</text><i class="icon2"></i></view></view> -->

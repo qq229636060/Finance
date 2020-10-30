@@ -8,7 +8,8 @@ Page({
   data: {
      cont_id:"",
      zj_list:"",
-     number:""
+     number:"",
+     fm_img:""
   },
   goto_textcont:function(e){
     var ids = e.currentTarget.dataset.id
@@ -21,7 +22,8 @@ Page({
    */
   onLoad: function (options) {
      this.setData({
-       cont_id:options.id
+       cont_id:options.id,
+       fm_img:options.img
      })
      this.getlistdata()
   },

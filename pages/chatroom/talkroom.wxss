@@ -13,10 +13,11 @@ page{
 .teacher_title{ width: 100%; height: 100rpx; background: #fff; position: fixed; top:0; font-size: 23rpx; padding:20rpx 40rpx; box-sizing: border-box; z-index: 9; border-bottom: solid 1rpx #eee;} 
 .teacher_title i{ width: 25rpx; height: 76rpx; position: absolute; left: 0; top:15rpx}
 .teacher_title i image{ width: 25rpx; height: 76rpx;}
-.teacher_right { width: 370rpx; height: 100%; background: #fff; right: 0; top:0; position: fixed; top:0; right: 0; z-index: 8;box-shadow: -2px 0 10px #d7d7d7;  }
+.teacher_right { width: 370rpx; height: 100%;  background: #fff; right: 0; top:0; position: fixed; top:0; right: 0; z-index: 8;box-shadow: -2px 0 10px #d7d7d7; overflow-y:scroll; padding-bottom: 100rpx;  }
 .teacher_right i{ width:55rpx; height: 77rpx; position:absolute; left: -25rpx; top:50%;  margin-top:-36rpx}
 .teacher_right i image{ width: 55rpx; height: 77rpx;}
 .teachbox{padding: 20rpx;box-sizing: border-box; border-bottom:1rpx dashed #55ab67;}
+.teachbox:last-child{margin-bottom: 100rpx;}
 .teachbox_t{ display: flex; align-items: center;}
 .teachbox_t .teachface{ width: 70rpx; height: 70rpx; margin-right: 20rpx;}
 .teachbox_t .teachface image { width: 70rpx; height: 70rpx; border-radius: 50%;}
