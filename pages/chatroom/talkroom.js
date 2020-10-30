@@ -246,11 +246,9 @@ Page({
                 textToEmoji(item.msg).forEach((items,index)=>{
                   if(items.msgType == "text"){
                     const regex = new RegExp('<img', 'gi');
-                  if(items.msgCont.indexOf("sina-emotion") == -1){
+                 
                     items.msgCont = items.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
-                  }else{
-                     //items.msgCont = items.msgCont.replace(regex, `<img style='width:25rpx'`);
-                  }
+                  
                     tmpconts += items.msgCont
                   }else if(items.msgType == "emoji"){
                     tmpconts += "<img src="+items.msgImage+" class='pp'></img>"
