@@ -14,5 +14,20 @@ Component({
     }
   },
   data:{},
-  methods: {}
+  methods: {
+    clickimg:function(e){
+     console.log(e)
+     var t =  e.target.dataset.img;
+     if (t.indexOf("src=") != '-1' ){
+          t.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, function (match, capture) {
+          console.log(capture);
+          wx.previewImage({
+            current: capture, // 当前显示图片的http链接
+            urls: [capture] // 需要预览的图片http链接列表
+          })
+        })
+     }
+    }
+  },
+  
 })
