@@ -64,8 +64,8 @@
           <view class="navtxt">波段王</view>
       </view>
        <view class="navbox" bindtap="gotonav" data-id="8">
-          <view class="navicon"><image src="../../img/i8.png"></image></view>
-          <view class="navtxt">财经日历</view>
+          <view class="navicon"><image src="../../img/i11.png"></image></view>
+          <view class="navtxt">名家观点</view>
       </view>
        <view class="navbox" bindtap="gotonav" data-id="9">
           <view class="navicon"><image src="../../img/i9.png"></image></view>
