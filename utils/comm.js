@@ -25,7 +25,7 @@ const requestAjax = function (url, postData, types,message, success, fail) {
   }catch (e) {
     loctoken = ""
   }
-  if(url != '/home/stock/allstock'){
+  if(url != '/home/stock/allstock' && url != '/home/chat/detail' && url != '/home/chat/suggest'){
     wx.showNavigationBarLoading()
     if (message != "") {
       wx.showLoading({

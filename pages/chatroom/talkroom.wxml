@@ -5,11 +5,11 @@
    <i bindtap="rightbtn"  class="rightbtncss" wx:if="{{rightwindow == 1}}"><image src="../../img/icon2_r.png"></image></i>
    <view class="teacher_title" animation="{{techertopAnimation}}" bindtransitionend='animationend'>
    <i bindtap="topbtn"><image src="../../img/icon1.png"></image></i>
-     {{techerbox.chat.desc}}
+     {{techerbox_top}}
    </view>
    <view class="teacher_right" animation="{{techerrightAnimation}}" bindtransitionend='animationend_rightbox'>
     <i bindtap="rightbtn" wx:if="{{rightwindow == 0}}"><image src="../../img/icon2.png"></image></i>
-    <view class="teachbox" wx:for="{{techerbox.suggest}}" wx:key="this">
+    <view class="teachbox" wx:for="{{techerbox}}" wx:key="this">
        <image src="../../img/icon_t.png" class="ping" wx:if="{{item.close == 1}}"></image>
        <view class="teachbox_t">
           <view class="teachface"><image src="{{item.teacher.avatar}}"></image></view>

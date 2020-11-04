@@ -46,6 +46,7 @@ Page({
     sendcont:"",
     roomid:"",
     techerbox:"",
+    techerbox_top:"",
     myuid:"",
     showEmojis:false,
     emojiList:"",
@@ -74,7 +75,7 @@ Page({
         function () {
           that.teacherbox()
         }
-   ,5000);
+   ,20000);
      
 },
   animationend:function(){
@@ -410,9 +411,14 @@ sendToServer: function (type, msg) {
     var data = { id: this.data.roomid}
     zajax.requestAjax('/home/chat/detail',data,'get','正在加载',function(res){
         _this.setData({
-          techerbox:res.data
+          techerbox_top:res.data
         })
     })
+    zajax.requestAjax('/home/chat/suggest',data,'get','正在加载',function(res){
+      _this.setData({
+        techerbox:res.data
+    })
+  })
   },
   getuserinfo:function(){
     var _this = this;
@@ -482,6 +488,7 @@ sendToServer: function (type, msg) {
       })
     }
     this.startSetInter()
+    this.startSetInter1()
   },
 
   /**
@@ -492,6 +499,7 @@ sendToServer: function (type, msg) {
       console.info('连接关闭');
     });
     clearInterval(this.data.setInter)
+    clearInterval(this.data.setInter1)
   },
 
   /**
@@ -502,6 +510,7 @@ sendToServer: function (type, msg) {
       console.info('连接关闭');
     });
     clearInterval(this.data.setInter)
+    clearInterval(this.data.setInter1)
   },
 
   /**
