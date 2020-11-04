@@ -133,7 +133,7 @@ Page({
   goBottom: function (n = 0) {
     timeouts.push(setTimeout(() => {
       this.setData({
-        scrollTop: 99999
+        //scrollTop: 99999
       })
     }, n))
   },
@@ -344,8 +344,11 @@ sendToServer: function (type, msg) {
         }
     })
     sayData.msg = tmpcont
-    console.log(sayData)
+    this.setData({
+      sendcont:""
+    })
     this.sayContent(sayData);
+   
   },
   gettime:function() {
       var date = new Date();
@@ -356,7 +359,7 @@ sendToServer: function (type, msg) {
     wx.createSelectorQuery().select('.iner').boundingClientRect(function (rect) {
       // 使页面滚动到底部
       wx.pageScrollTo({
-        scrollTop: rect.bottom+ 9999
+        scrollTop: rect.bottom+999
       })
     }).exec()
   },
@@ -393,12 +396,9 @@ sendToServer: function (type, msg) {
           console.log(tmparr)
           this.setData({
               talklist:tmparr,
-              sendcont:""
+              // sendcont:""
           })
         }
-        
-    
-
     this.pageScrollToBottom();
   },
   liseninputcont:function(event){
