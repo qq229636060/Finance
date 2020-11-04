@@ -163,6 +163,7 @@ Page({
           showtalk:1
         })
      }else{
+      clearInterval(this.data.setInter)
       this.setData({
         showtalk:0
       })
@@ -411,7 +412,7 @@ sendToServer: function (type, msg) {
     var data = { id: this.data.roomid}
     zajax.requestAjax('/home/chat/detail',data,'get','正在加载',function(res){
         _this.setData({
-          techerbox_top:res.data
+          techerbox_top:res.data.desc
         })
     })
     zajax.requestAjax('/home/chat/suggest',data,'get','正在加载',function(res){

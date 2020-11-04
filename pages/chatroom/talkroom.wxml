@@ -34,7 +34,7 @@
 </view>
 <view class="fixtool" style='bottom:{{emojibox_h}}'>
   <view class="techroom_icon" bindtap="switch"><image src="{{talkbtn[showtalk]}}"></image></view>
-  <input class="weui-input" placeholder="评论" bindinput="liseninputcont" value="{{sendcont}}" disabled='{{showtalk == 1 ? true:false}}'/>
+  <view class="divinput"><input class="weui-input" placeholder="评论" bindinput="liseninputcont" value="{{sendcont}}" disabled='{{showtalk == 1 ? true:false}}' adjust-position="false"/></view>
    <view class="emojiface" catchtap="toggleEmojis"><image src="../../img/emoji.png"></image></view>
    <button class="fs" size="mini" bindtap="send" wx:if="{{showtalk == 0}}">发送</button>
    <button class="fs" size="mini" disabled wx:else >发送</button>
