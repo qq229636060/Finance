@@ -50,6 +50,7 @@ Page({
     showEmojis:false,
     emojiList:"",
     setInter:'',
+    setInter1:'',
     emojibox_h:'',
     footall_h:"",
     loctoken:"",
@@ -63,8 +64,19 @@ Page({
           function () {
             that.sendToServer(chatType.ping, "");
           }
-    ,55000);   
+     ,55000);
+       
   },
+  startSetInter1: function(){
+    var that = this;
+    //将计时器赋值给setInter
+    that.data.setInter1 = setInterval(
+        function () {
+          that.teacherbox()
+        }
+   ,5000);
+     
+},
   animationend:function(){
     if(this.data.topwindow == 0){
       this.setData({
@@ -120,7 +132,7 @@ Page({
   goBottom: function (n = 0) {
     timeouts.push(setTimeout(() => {
       this.setData({
-        scrollTop: 9999
+        scrollTop: 99999
       })
     }, n))
   },
@@ -144,7 +156,7 @@ Page({
   },
   switch:function(){
      if(this.data.showtalk == 0){
-        this.teacherbox()
+        this.teacherbox();
         this.hideemoji()
         this.setData({
           showtalk:1
@@ -224,7 +236,7 @@ Page({
           
         case chatType.say_in_room:
           console.log(data['client'])
-    if (this.data.myuid != data['from_id'] || (data['from_id'] == this.data.myuid && data['client'] == 2))
+        if (this.data.myuid != data['from_id'] || (data['from_id'] == this.data.myuid && data['client'] == 2))
               {
                 this.sayContent(data)
                 this.pageScrollToBottom();
@@ -320,10 +332,10 @@ sendToServer: function (type, msg) {
     textToEmoji(sayData.msg).forEach((item,index)=>{
         if(item.msgType == "text"){
           const regex = new RegExp('<img', 'gi');
-          if(items.msgCont.indexOf("sina-emotion") == -1){
+          if(item.msgCont.indexOf("sina-emotion") == -1){
             item.msgCont = item.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
           }else{
-            items.msgCont = items.msgCont.replace(regex, `<img class='pp'`);
+            item.msgCont = items.msgCont.replace(regex, `<img class='pp'`);
           }
           tmpcont += "<span class='smpic'>"+item.msgCont+"</span>"
         }else if(item.msgType == "emoji"){
@@ -331,6 +343,7 @@ sendToServer: function (type, msg) {
         }
     })
     sayData.msg = tmpcont
+    console.log(sayData)
     this.sayContent(sayData);
   },
   gettime:function() {
@@ -342,13 +355,30 @@ sendToServer: function (type, msg) {
     wx.createSelectorQuery().select('.iner').boundingClientRect(function (rect) {
       // 使页面滚动到底部
       wx.pageScrollTo({
-        scrollTop: rect.bottom+ 5000
+        scrollTop: rect.bottom+ 9999
       })
     }).exec()
   },
   sayContent:function(data){
     if (!data) return;
-        console.log(data)
+        console.log(data);
+        var tmpcont=''
+        console.log(data.msg)
+        textToEmoji(data.msg).forEach((item,index)=>{
+            if(item.msgType == "text"){
+              const regex = new RegExp('<img', 'gi');
+              if(item.msgCont.indexOf("sina-emotion") == -1){
+                item.msgCont = item.msgCont.replace(regex, `<img style="width:80%;display:block;margin:0 auto;"`);
+              }else{
+                item.msgCont = items.msgCont.replace(regex, `<img class='pp'`);
+              }
+                tmpcont += "<span class='smpic'>"+item.msgCont+"</span>"
+              }else if(item.msgType == "emoji"){
+                tmpcont += "<img src="+item.msgImage+" class='pp' style='width:45rpx'></img>"
+              }
+        })
+
+
         var tmparr
         if(this.data.talklist == ''){
           tmparr = {}
@@ -357,7 +387,9 @@ sendToServer: function (type, msg) {
           tmparr = this.data.talklist
         }
         if(data){
+          data.msg = tmpcont
           tmparr.msg.push(data);
+          console.log(tmparr)
           this.setData({
               talklist:tmparr,
               sendcont:""
@@ -456,22 +488,20 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    var _this = this
-    wxst.close(() => {
+    wxst.close(function(){
       console.info('连接关闭');
-      });
-    clearInterval(_this.data.setInter)
+    });
+    clearInterval(this.data.setInter)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    var _this = this
-    wxst.close(() => {
+    wxst.close(function(){
       console.info('连接关闭');
     });
-    clearInterval(_this.data.setInter)
+    clearInterval(this.data.setInter)
   },
 
   /**

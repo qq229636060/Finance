@@ -43,7 +43,7 @@ Page({
   startConnect: function () {
     var _this = this
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
-    var url = 'wss://api.qihuozzb.com/wss';
+    var url = 'wss://api.qihuozzb.com/wss:7372';
     wxst = wx.connectSocket({
       url: url,
       method: "GET",
@@ -228,9 +228,17 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    wxst.close(() => {
-      console.info('连接关闭');
-      });
+    wxst.close(function(res) {
+      console.log('WebSocket 已关闭！')
+    })
+    // wxst.close(() => {
+    //   console.info('连接关闭');
+    //   });
+    // wxst.onClose(function(res) {
+    //   console.log('WebSocket 已关闭！')
+    // })
+    
+    clearInterval(this.data.setInter)
   },
 
   /**
@@ -238,9 +246,15 @@ Page({
    */
   onUnload: function () {
     // clearTimeout(t)
-    wxst.close(() => {
-      console.info('连接关闭');
-    });
+    // wxst.close(() => {
+    //   console.info('连接关闭');
+    // });
+    // wxst.onClose(function(res) {
+    //   console.log('WebSocket 已关闭！')
+    // })
+    wxst.close(function(res) {
+      console.log('WebSocket 已关闭！')
+    })
     clearInterval(this.data.setInter)
   },
 

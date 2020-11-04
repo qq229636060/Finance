@@ -52,6 +52,8 @@ Page({
       text = '每日一策'
     }else if(options.id == 6){
       text = '独家报告'
+    }else if(options.id == 8){
+      text = '名家观点'
     }
     wx.setNavigationBarTitle({
       title: text

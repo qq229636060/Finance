@@ -60,7 +60,7 @@ Page({
   startConnect: function () {
     var _this = this
     //本地测试使用 ws协议 ,正式上线使用 wss 协议
-    var url = 'wss://api.qihuozzb.com/wss';
+    var url = 'wss://api.qihuozzb.com/wss:7372';
     wxstindex = wx.connectSocket({
       url: url,
       method: "GET",
@@ -199,33 +199,49 @@ Page({
     },
     onHide: function () {
       console.log(wxstindex)
-      if(wxstindex){
-        wxstindex.close(() => {
-          console.info('连接关闭');
-        });
-      }
+      wxstindex.close(function(res) {
+        console.log('WebSocket 已关闭！')
+      })
       clearInterval(this.data.setInter)
+      // if(wxstindex){
+      //   wxstindex.close((res) => {
+      //     console.log(res)
+      //     console.info('连接关闭');
+      //     clearInterval(this.data.setInter)
+      //   });
+      // }
+      
     },
   
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-      // clearTimeout(t)
-      
-      console.log(wxstindex)
-      if(wxstindex){
-        wxstindex.close(() => {
-          console.info('连接关闭');
-        });
-      }
+      wxstindex.close(function(res) {
+        console.log('WebSocket 已关闭！')
+      })
       clearInterval(this.data.setInter)
+      // console.log(wxstindex)
+      // wx.onSocketClose(function(res) {
+      //   console.log('WebSocket 已关闭！')
+      // })
+      // clearTimeout(t)
+      // wx.closeSocket({
+
+      // })
+      // console.log(wxstindex)
+      //   wxstindex.close((res) => {
+      //     console.log(res)
+      //     console.info('连接关闭');
+          
+      //   });
+        clearInterval(this.data.setInter)
      
     },
     onShow: function () {
       //this.getdata()
       this.getpagedata()
-      this.startConnect()
+      //this.startConnect()
       this.gettxt()
       this.startSetInter()
       this.getuserinfo()
@@ -318,6 +334,10 @@ Page({
         }
         break;
       case '8':
+                wx.navigateTo({
+                  url:"../oneday_news/otherlist?id=8"
+                });
+                break;
                 // wx.navigateTo({
                 //     url:"../Economic/index"
                 // });
