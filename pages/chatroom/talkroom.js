@@ -480,7 +480,7 @@ sendToServer: function (type, msg) {
       //  emojiList:emojiList
        emojiList:emojisina.emoji_sina
      })
-     this.getuserinfo()
+    
     
   },
 
@@ -495,6 +495,7 @@ sendToServer: function (type, msg) {
    * 生命周期函数--监听页面显示
    */
   onShow: function (e) {
+    console.log("onshow")
     try {
       var value = wx.getStorageSync('token_data')
       if(value) {
@@ -510,6 +511,7 @@ sendToServer: function (type, msg) {
     this.startSetInter()
     this.startSetInter1();
     this.wh()
+    this.getuserinfo()
   },
 
   /**
