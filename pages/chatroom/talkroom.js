@@ -56,7 +56,8 @@ Page({
     footall_h:"",
     loctoken:"",
     roleid:"",
-    selfface:""
+    selfface:"",
+    sbt:""
   },
   startSetInter: function(){
       var that = this;
@@ -75,7 +76,7 @@ Page({
         function () {
           that.teacherbox()
         }
-   ,20000);
+   ,30000);
      
 },
   animationend:function(){
@@ -240,8 +241,8 @@ Page({
           console.log(data['client'])
         if (this.data.myuid != data['from_id'] || (data['from_id'] == this.data.myuid && data['client'] == 2))
               {
-                this.sayContent(data)
-                this.pageScrollToBottom();
+                this.sayContent(data,chatType.say_in_room)
+                //this.pageScrollToBottom();
               }
             return;
         case chatType.chat_list:
@@ -313,22 +314,31 @@ sendToServer: function (type, msg) {
   },
   send:function(){
     if (this.data.sendcont == '') {
+      wx.showToast({
+        title: '请填写信息后在发送',
+        duration: 2000
+      })
       return;
     }
+    var talk_cont = this.data.sendcont;
+    this.setData({
+      sendcont:''
+    })
     var time = this.gettime();
-    this.sendToServer(chatType.say_in_room, this.data.sendcont);
+    this.sendToServer(chatType.say_in_room,talk_cont);
     console.log(this.data.selfface)
     var sayData = {
       chat_id: this.data.roomid,
       role: this.data.roleid,
       token: this.data.loctoken,
-      msg: this.data.sendcont,
+      msg: talk_cont,
       time: time,
       from_id: this.data.myuid,
       from_user:{avatar:this.data.selfface},
       uid:this.data.myuid,
       client:1
     }
+    
     var tmpcont=''
     console.log(sayData.msg)
     textToEmoji(sayData.msg).forEach((item,index)=>{
@@ -345,9 +355,6 @@ sendToServer: function (type, msg) {
         }
     })
     sayData.msg = tmpcont
-    this.setData({
-      sendcont:""
-    })
     this.sayContent(sayData);
    
   },
@@ -357,16 +364,18 @@ sendToServer: function (type, msg) {
       return currentdate;
   },
   pageScrollToBottom: function () {
+    var _this = this;
     wx.createSelectorQuery().select('.iner').boundingClientRect(function (rect) {
       // 使页面滚动到底部
-      wx.pageScrollTo({
-        scrollTop: rect.bottom+999
-      })
+      setTimeout(function(){
+        wx.pageScrollTo({
+          scrollTop: rect.bottom+999
+        })
+      },100)
     }).exec()
   },
-  sayContent:function(data){
+  sayContent:function(data,tyepe_id){
     if (!data) return;
-        console.log(data);
         var tmpcont=''
         console.log(data.msg)
         textToEmoji(data.msg).forEach((item,index)=>{
@@ -382,8 +391,6 @@ sendToServer: function (type, msg) {
                 tmpcont += "<img src="+item.msgImage+" class='pp' style='width:45rpx'></img>"
               }
         })
-
-
         var tmparr
         if(this.data.talklist == ''){
           tmparr = {}
@@ -394,11 +401,17 @@ sendToServer: function (type, msg) {
         if(data){
           data.msg = tmpcont
           tmparr.msg.push(data);
-          console.log(tmparr)
-          this.setData({
-              talklist:tmparr,
-              // sendcont:""
+          if(tyepe_id == 3){
+            this.setData({
+              talklist:tmparr
           })
+          }else{
+            this.setData({
+              talklist:tmparr,
+              sendcont:""
+          })
+          }
+          
         }
     this.pageScrollToBottom();
   },

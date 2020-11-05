@@ -9,7 +9,7 @@ page{
 .techroom_icon image{ width: 60rpx; height: 60rpx;}
 .weui-input{ width: 425rpx; height: 60rpx; background: #fff; padding: 0 30rpx; box-sizing: border-box; border-radius: 10rpx;}
 .fs{ width: 100rpx; height: 60rpx; line-height: 60rpx; padding: 0;background: #fb432a; color: #fff; font-size: 24rpx !important;}
-.iner{display: block; width: 100%; height: 100%; overflow-y: scroll;}
+.iner{display: block; width: 100%; height: 100%; overflow: hidden;}
 .teacher_title{ width: 100%; height: 100rpx; background: #fff; position: fixed; top:0; font-size: 23rpx; padding:20rpx 40rpx; box-sizing: border-box; z-index: 9; border-bottom: solid 1rpx #eee;} 
 .teacher_title i{ width: 25rpx; height: 76rpx; position: absolute; left: 0; top:15rpx}
 .teacher_title i image{ width: 25rpx; height: 76rpx;}

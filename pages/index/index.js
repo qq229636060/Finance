@@ -199,9 +199,10 @@ Page({
     },
     onHide: function () {
       console.log(wxstindex)
+      if(wxstindex){
       wxstindex.close(function(res) {
         console.log('WebSocket 已关闭！')
-      })
+      })}
       clearInterval(this.data.setInter)
       // if(wxstindex){
       //   wxstindex.close((res) => {
@@ -217,9 +218,11 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-      wxstindex.close(function(res) {
-        console.log('WebSocket 已关闭！')
-      })
+      
+      if(wxstindex){
+        wxstindex.close(function(res) {
+          console.log('WebSocket 已关闭！')
+        })}
       clearInterval(this.data.setInter)
       // console.log(wxstindex)
       // wx.onSocketClose(function(res) {

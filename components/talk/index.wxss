@@ -1,6 +1,6 @@
 /**index.wxss**/
-.talk{padding-bottom: 100rpx;overflow-y: scroll;}
-.talkbox{display: flex; padding: 30rpx; width: 100%; box-sizing: border-box;}
+.talk{padding-bottom: 100rpx;height: 100%;box-sizing: border-box; }
+.talkbox{display: flex; padding: 30rpx; width: 100%; box-sizing: border-box; }
 .myself{ flex-direction:row-reverse}
 .talkbox_l{ width: 80rpx; text-align: center;}
 .talkbox_l .talkboxface{ width: 80rpx; height: 80rpx;}

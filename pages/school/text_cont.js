@@ -7,7 +7,8 @@ Page({
    */
   data: {
       id:"",
-      conts:""
+      conts:"",
+      c_cont:""
   },
 
   /**
@@ -26,8 +27,10 @@ Page({
     }
     zajax.requestAjax('/home/course/detail',data,'get','正在加载',function(res){
        if(res.code == 0){
+          var cont = res.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
           _this.setData({
-            conts:res.data
+            conts:res.data,
+            c_cont:cont
           })
        } 
     })

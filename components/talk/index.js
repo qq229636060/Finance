@@ -3,17 +3,30 @@
 const app = getApp()
 Component({
   properties: {
+    scollbt:{
+      type: null,
+      observer:function(newVal, oldVal){
+        console.log(newVal)
+        this.setData({
+          scollbt: newVal
+        })
+      }
+    },
     talklist: {            // 属性名
       type: null,     // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
       observer: function (newVal, oldVal) { 
-        console.log(newVal)
-        this.setData({
-          talklist : newVal
-        })
+        if(newVal){
+          this.setData({
+            talklist : newVal
+          })
+        }
+       
       }
     }
   },
-  data:{},
+  data:{
+    last_len:""
+  },
   methods: {
     clickimg:function(e){
      console.log(e)

@@ -1,5 +1,5 @@
 <view class="container">
-<my-talk class="iner" talklist="{{talklist}}" style="padding-bottom:{{footall_h}}" catchtap='hideemoji'></my-talk>
+<my-talk class="iner" talklist="{{talklist}}" scollbt= "{{sbt}}" style="padding-bottom:{{footall_h}}" catchtap='hideemoji'></my-talk>
 <view class="teacher" wx:if="{{showtalk == 1}}">
    <i bindtap="topbtn" class="topbtncss" wx:if="{{topwindow == 1}}"><image src="../../img/icon1_r.png"></image></i>
    <i bindtap="rightbtn"  class="rightbtncss" wx:if="{{rightwindow == 1}}"><image src="../../img/icon2_r.png"></image></i>

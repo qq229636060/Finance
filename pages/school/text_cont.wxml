@@ -4,7 +4,7 @@
     <view class="cont_title">{{conts.title}}</view>
     <view class="cont_from">发布时间:{{dateFr.getDate(conts.create_time*1000)}}</view>
     <view class="cont_text">
-    <rich-text nodes="{{conts.content}}" data-data="{{conts.content}}" bindtap="tap"></rich-text>
+    <rich-text nodes="{{c_cont}}" data-data="{{c_cont}}" bindtap="tap"></rich-text>
     </view>
     </view>
     <wxs module="dateFr" src="../../utils/formatdate.wxs"></wxs>

@@ -1,7 +1,7 @@
 <!--index.wxml-->
-<view class="container">
-  <scroll-view class="talk">
-     <view class="{{item.from_id == talklist.myuid ? 'talkbox myself' : 'talkbox'}}" wx:for="{{talklist.msg}}" wx:key="this">
+
+  <view class="talk">
+     <view class="{{item.from_id == talklist.myuid ? 'talkbox myself' : 'talkbox'}}" wx:for="{{talklist.msg}}" wx:key="this" id="{{'b'+item.id}}">
             <view class="talkbox_l">
                 <view class="talkboxface"><image src="{{item.from_user.avatar}}"></image></view>
                 <view class="times">{{item.time}}</view>
@@ -21,6 +21,6 @@
                 <view class="talkcont">哈哈今晚回来吃饭吗？</view>
             </view>
      </view> -->
-     
-  </scroll-view>
-</view>
+ 
+  </view>
+
