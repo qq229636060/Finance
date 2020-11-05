@@ -57,7 +57,8 @@ Page({
     loctoken:"",
     roleid:"",
     selfface:"",
-    sbt:""
+    letterScrolltop:'',
+    window_h:""
   },
   startSetInter: function(){
       var that = this;
@@ -368,10 +369,15 @@ sendToServer: function (type, msg) {
     wx.createSelectorQuery().select('.iner').boundingClientRect(function (rect) {
       // 使页面滚动到底部
       setTimeout(function(){
-        wx.pageScrollTo({
-          scrollTop: rect.bottom+999
-        })
-      },100)
+           _this.setData({
+            letterScrolltop:rect.bottom+999
+           })
+          // wx.pageScrollTo({
+          //   // scrollTop: rect.bottom+999
+          //   selector:'#ii'
+          // })
+      
+      },200)
     }).exec()
   },
   sayContent:function(data,tyepe_id){
@@ -404,7 +410,7 @@ sendToServer: function (type, msg) {
           if(tyepe_id == 3){
             this.setData({
               talklist:tmparr
-          })
+            })
           }else{
             this.setData({
               talklist:tmparr,
@@ -413,7 +419,7 @@ sendToServer: function (type, msg) {
           }
           
         }
-    this.pageScrollToBottom();
+       this.pageScrollToBottom();
   },
   liseninputcont:function(event){
       this.setData({
@@ -502,7 +508,8 @@ sendToServer: function (type, msg) {
       })
     }
     this.startSetInter()
-    this.startSetInter1()
+    this.startSetInter1();
+    this.wh()
   },
 
   /**
@@ -526,7 +533,16 @@ sendToServer: function (type, msg) {
     clearInterval(this.data.setInter)
     clearInterval(this.data.setInter1)
   },
-
+  wh: function(){
+    var _this = this;
+    wx.getSystemInfo({
+      success (res) {
+        _this.setData({
+          window_h:res.windowHeight
+        })
+      }
+    })
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
