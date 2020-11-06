@@ -78,7 +78,7 @@
   </view>
   <swiper indicator-dots="{{indicatorDots_pic}}" autoplay="{{autoplay_pic}}" interval="{{interval_pic}}" duration="{{duration_pic}}" class="jdpic" indicator-active-color="#e1503c" indicator-color="#d1d1d1" wx:if="{{bannerdata.length != 0}}">
         <block wx:key="*this" wx:for='{{bannerdata}}'>
-          <swiper-item>
+          <swiper-item bindtap="gotoh5" data-url='{{item.url}}'>
               <image src="{{item.pic}}"></image>
           </swiper-item>
         </block>
