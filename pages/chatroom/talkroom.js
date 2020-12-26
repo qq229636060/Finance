@@ -426,7 +426,7 @@ sendToServer: function (type, msg) {
         sendcont:event.detail.value
       })
   },
-  teacherbox:function(){
+  teacherbox1:function(){
     var _this = this;
     var data = { id: this.data.roomid}
     zajax.requestAjax('/home/chat/detail',data,'get','正在加载',function(res){
@@ -434,6 +434,10 @@ sendToServer: function (type, msg) {
           techerbox_top:res.data.desc
         })
     })
+  },
+  teacherbox:function(){
+    var _this = this;
+    var data = { id: this.data.roomid}
     zajax.requestAjax('/home/chat/suggest',data,'get','正在加载',function(res){
       _this.setData({
         techerbox:res.data
@@ -510,6 +514,7 @@ sendToServer: function (type, msg) {
     }
     this.startSetInter()
     this.startSetInter1();
+    this.teacherbox1()
     this.wh()
     this.getuserinfo()
   },
